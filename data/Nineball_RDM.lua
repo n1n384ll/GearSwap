@@ -1,7 +1,6 @@
 --include('organizer-lib')
 
 function get_sets() 
-    --send_command('input --- swap ---')
     --send_command('input //gs showswaps')
 
     --[[
@@ -24,25 +23,6 @@ function get_sets()
         feet=""
     }
     --]]
-
-    sets.nude = {
-        main=empty,
-        sub=empty,
-        range=empty,
-        ammo=empty,
-        head=empty,
-        neck=empty,
-        left_ear=empty,
-        right_ear=empty,
-        body=empty,
-        hands=empty,
-        left_ring=empty,
-        right_ring=empty,
-        back=empty,
-        waist=empty,
-        legs=empty,
-        feet=empty
-    }
 
     sets.idle = {
         --main="",
