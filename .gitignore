@@ -3,3 +3,4 @@
 /libs
 /*.lua
 /version_history.txt
+/data/export/*
