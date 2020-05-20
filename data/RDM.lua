@@ -450,10 +450,10 @@ function midcast(spell)
 end
 
 function aftercast(spell)
-    if player.status =='Engaged'
-        then equip(sets.melee)
-    elseif player.in_combat
-        then equip(sets.dt)
+    if player.status =='Engaged' then
+        equip(sets.melee)
+    elseif player.in_combat then
+        equip(sets.dt)
     else
         equip(sets.idle)
     end
@@ -463,10 +463,10 @@ end
 
 function status_change(new, old)
     print('staus_change ' .. new .. ' -> ' .. old)
-    if player.status =='Engaged' 
-        then equip(sets.melee)
-    elseif player.in_combat
-        then equip(sets.dt)
+    if player.status =='Engaged' then
+        equip(sets.melee)
+    elseif player.in_combat then
+        equip(sets.dt)
     else
         equip(sets.idle)
     end
