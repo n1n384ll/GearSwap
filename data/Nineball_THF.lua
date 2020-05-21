@@ -323,3 +323,6 @@ function buff_change(name, gain, buff_details)
     else 
     end
 end
+
+function buff_refresh(name, buff_details) 
+end

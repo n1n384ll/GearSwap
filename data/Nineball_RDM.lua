@@ -475,3 +475,10 @@ function status_change(new, old)
         equip(sets.idle)
     end
 end
+
+function buff_change(name, gain, buff_details)
+end
+
+function buff_refresh(name, buff_details) 
+end
+
