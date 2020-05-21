@@ -31,8 +31,8 @@ function get_sets()
         ammo="Impatiens",
         head="Vitiation chapeau",
         neck="Twilight torque",
-        left_ear="Estoqueur's earring",
-        right_ear="Loquacious earring",
+        left_ear="Infused earring",
+        right_ear="Colossus's earring",
         body="Jhakri Robe",
         hands="Atrophy Gloves +1",
         left_ring="Shneddick ring",
@@ -262,9 +262,7 @@ function get_sets()
         feet="Jhakri pigaches +1"
     }
 
-    sets.ws = {}
-
-    sets.ws.savage = {
+    sets.savage = {
         ammo="Paeapua",
         head="Jhakri Coronal +1",
         body="Jhakri Robe",
@@ -280,7 +278,7 @@ function get_sets()
         back="Letalis Mantle"
     }
 
-    sets.ws.death_blossom = {
+    sets.death_blossom = {
          ammo="Paeapua",
         head="Jhakri Coronal +1",
         body="Jhakri Robe",
@@ -294,6 +292,22 @@ function get_sets()
         left_ring="Apate Ring",
         right_ring="Rajas Ring",
         back="Letalis Mantle",
+    }
+
+    sets.circle_blade = {
+        ammo="Demonry Core",
+        head="Jhakri Coronal +1",
+        body="Jhakri Robe",
+        hands="Jhakri Cuffs +1",
+        legs="Jhakri Slops",
+        feet="Jhakri Pigaches +1",
+        neck="Asperity Necklace",
+        waist="Aqua Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Pyrosoul Ring",
+        right_ring="Pyrosoul Ring",
+        back="Letalis Mantle"
     }
 
     sets.convert = {
@@ -352,10 +366,13 @@ function precast(spell)
 
     --- Weaponskills ---
     elseif spell.name == 'Savage Blade' then
-        equip(sets.ws.savage)
+        equip(sets.savage)
 
     elseif spell.name == 'Death Blossom' then
-        equip(sets.ws.death_blossom)
+        equip(sets.death_blossom)
+
+    elseif spell.name == 'Circle Blade' then
+        equip(sets.circle_blade)
 
     elseif spell.name == 'Convert' then
         equip(sets.convert)
@@ -415,10 +432,13 @@ function midcast(spell)
 
     --- Weaponskills Midcast (just to be sure) ---
     elseif spell.name == 'Savage Blade' then
-        equip(sets.ws.savage)
+        equip(sets.savage)
 
     elseif spell.name == 'Death Blossom' then
-        equip(sets.ws.death_blossom)
+        equip(sets.death_blossom)
+
+    elseif spell.name == 'Circle Blade' then
+        equip(sets.circle_blade)
 
     elseif spell.name == 'Convert' then
         equip(sets.convert)
@@ -442,7 +462,7 @@ function aftercast(spell)
 end
 
 function status_change(new, old)
-    print('staus_change ' .. new .. ' -> ' .. old)
+    --print('staus_change ' .. new .. ' -> ' .. old)
     if player.status =='Engaged' then
         equip(sets.melee)
     elseif player.in_combat then

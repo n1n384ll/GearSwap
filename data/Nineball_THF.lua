@@ -172,13 +172,22 @@ function get_sets()
 
     sets.midcast = {}
 
-    sets.midcast.nuke = {
-
+    sets.midcast.macc = {
+        ammo="Demonry Stone",
+        head="Uk'uxkaj Cap",
+        body="Mekosu. Harness",
+        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        legs="Ighwa Trousers",
+        feet="Skulk. Poulaines",
+        neck="Weike Torque",
+        waist="Chaac Belt",
+        left_ear="Lifestorm Earring",
+        right_ear="Psystorm Earring",
+        left_ring="Perception Ring",
+        right_ring="Sangoma Ring",
+        back="Shadow Mantle",
     }
 
-    sets.midcast.feeb = {
-
-    }
 
 end
 
@@ -187,17 +196,22 @@ end
 
 
 function precast(spell)
-    print("precast spell.type is:")
-    print(spell.type)
-    
+
+    --print("precast spell.type is:")
+    --print(spell.type)
+
     if spell.skill == 'Elemental Magic' or
-        spell.skill == 'Enfeebling Magic' then
+        spell.skill == 'Enfeebling Magic' or
+        spell.skill == 'Dark Magic' then
         equip(sets.precast.fc)
+
     elseif spell.name == 'Aeolian Edge' then
         equip(sets.alien_edge)
+
     elseif spell.name == 'Shark Bite' or 
         spell.type == 'WeaponSkill' then
         equip(sets.shark_bite)
+
     else
     end
 
@@ -205,49 +219,94 @@ end
 
 
 function midcast(spell)
-    if spell.skill == 'Elemental Magic' then
-        equip(sets.midcast.nuke)
-    elseif spell.skill == 'Enfeebling Magic' then
-        equip(sets.midcast.feeb)
+
+    if spell.skill == 'Elemental Magic' or
+        spell.skill == 'Enfeebling Magic' or
+        spell.skill == 'Dark Magic' then
+        equip(sets.midcast.macc)
+
+    elseif spell.name == 'Aeolian Edge' then
+        equip(sets.alien_edge)
+
+    elseif spell.name == 'Shark Bite' or 
+        spell.type == 'WeaponSkill' then
+        print('used a ws')
+        equip(sets.shark_bite)
+
     else
     end
+
 end
 
 function aftercast(spell)
-    if player.status =='Engaged' then
-        equip(sets.melee)
+
+    if player.status == 'Engaged' then
+        if buffactive['Sneak Attack'] and
+            buffactive['Trick Attack'] then
+            equip(sets.sata)
+
+        elseif buffactive['Sneak Attack'] then
+            equip(sets.sneak_attack)
+
+        elseif buffactive['Trick Attack'] then
+            equip(sets.trick_attack)
+
+        else
+            equip(sets.melee)
+        end
+
     elseif player.in_combat then
         equip(sets.dt)
+
     else
         equip(sets.idle)
     end
-    --debug line - put the equip line after here to test set
-    --equip(sets.midcast.enhancing)
 end
 
 function status_change(new, old)
-    print('staus_change ' .. new .. ' -> ' .. old)
+    --print('staus_change ' .. old .. ' -> ' .. new)
+
     if player.status == 'Engaged' then
-        if buffactive['Sneak Attack'] then
+        if buffactive['Sneak Attack'] and
+            buffactive['Trick Attack'] then
+            equip(sets.sata)
+
+        elseif buffactive['Sneak Attack'] then
             equip(sets.sneak_attack)
+
         elseif buffactive['Trick Attack'] then
             equip(sets.trick_attack)
+
         else
             equip(sets.melee)
+        end
+
     elseif player.in_combat then
         equip(sets.dt)
+
     else
         equip(sets.idle)
     end
+
 end
 
 function buff_change(name, gain, buff_details)
-    print('name: ' .. name)
-    print('gain: ')
-    print(gain)
+    --print('buff_change')
 
-    if name == 'Sneak Attack' then
+    --- auto rr ---
+    if name == 'Reraise' then
+        send_command('input /item "Instant Reraise" <me>')
+    end
+
+
+    if buffactive['Sneak Attack'] and
+        buffactive['Trick Attack'] then
+            --print('sata set on')
+            equip(sets.sata)
+
+    elseif name == 'Sneak Attack' then
         if gain then
+            --print('sneak_attack set on')
             equip(sets.sneak_attack)
         else
             equip(sets.melee)
@@ -255,6 +314,7 @@ function buff_change(name, gain, buff_details)
 
     elseif name == 'Trick Attack' then
         if gain then
+            --print('trick_attack set on')
             equip(sets.trick_attack)
         else
             equip(sets.melee)
