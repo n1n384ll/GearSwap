@@ -416,7 +416,11 @@ function midcast(spell)
 
     --- Enfeebling Midcast ---
     elseif spell.skill == 'Enfeebling Magic' then
-        equip(sets.midcast.feeb)
+        if buffactive['Saboteur'] then
+            equip(set_combine(sets.midcast.feeb, {hands = "Leth. Gantherots"}))
+        else
+            equip(sets.midcast.feeb)
+        end
 
     --- Elemental Midcast ---
     elseif spell.skill == 'Elemental Magic' then
