@@ -164,10 +164,10 @@ end
 
 
 function precast(spell)
-    if spell.skill == 'Ninjutsu' then
-        equip(sets.precast.fc)
-    elseif spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi' then
+    if spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi' then
         equip(sets.precast.utsusemi)
+    elseif spell.skill == 'Ninjutsu' then
+        equip(sets.precast.fc)
     elseif spell.type == "WeaponSkill" then
         equip(sets.ws)
     elseif spell.type == "JobAbility" then
@@ -181,20 +181,22 @@ function precast(spell)
             equip(set_combine(sets.dt, {legs="Iga Hakama +2"}))
         elseif spell.name == "Mijin Gakure" then
             equip(set_combine(sets.dt, {ammo="Reacton Arm", legs="Koga Hakama +2"}))
+        elseif spell.name == "Provoke" then
+             equip(set_combine(sets.dt, {waist="Chaac Belt"}))
         -- elseif spell.name == "" then
         --     equip(set_combine(sets.dt, {}))
         else
-            equip(set_combine(sets.dt, {}))
+            equip(sets.precast.fc)
         end
     end
 end
 
 
 function midcast(spell)
-    if spell.skill == 'Ninjutsu Magic' then
-        equip(sets.midcast.ninjutsu)
-    elseif spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi' then
+    if spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi' then
         equip(sets.midcast.utsusemi)
+    elseif spell.skill == 'Ninjutsu Magic' then
+        equip(sets.midcast.ninjutsu)
     end
 end
 
@@ -212,14 +214,21 @@ end
 function status_change(new, old)
 	if player.status =='Engaged' then
         equip(sets.melee)
-    elseif player.in_combat then
-        equip(sets.dt)
     else
         equip(sets.idle)
     end
 end
 
 function buff_change(name, gain, buff_details)
+    if name == 'Yonin' and not gain then
+        send_command('input /ja Yonin <me>')
+    elseif name == 'Innin' and not gain then
+        send_command('input /ja Innin <me>')
+    elseif name == 'Subtle Blow Plus' and not gain then
+        send_command('input /ma "Myochin: Ichi" <me>')
+    elseif name == 'Store TP' and not gain then
+        send_command('input /ma "Kakka: Ichi" <me>')
+    end
 end
 
 function buff_refresh(name, buff_details) 
