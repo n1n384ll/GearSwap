@@ -2,6 +2,8 @@
 
 function get_sets() 
     --send_command('input //gs showswaps')
+    send_command('input /macro book 1')
+    send_command('input /macro set 9')
 
     --[[
     sets.template = {
@@ -335,13 +337,7 @@ end
 function precast(spell)
 
     --- Curing FC ----
-    if  spell.name == 'Cure' or 
-        spell.name == 'Cure II' or 
-        spell.name == 'Cure III' or 
-        spell.name == 'Cure IV' or
-        spell.name == 'Curaga' or
-        spell.name == 'Curaga II' or
-        spell.name == 'Cura' then
+    if spell.name:sub(1,3) == "Cur" and spell.name ~= "Cursna" then
         equip(sets.precast.fc_cure)
 
     --- Enhancing FC --- 
@@ -374,14 +370,11 @@ function precast(spell)
     elseif spell.name == 'Circle Blade' then
         equip(sets.circle_blade)
 
-    elseif spell.name == 'Convert' then
-        equip(sets.convert)
-
     elseif spell.type == 'JobAbility' then 
         if spell.name == 'Convert' then
             equip(sets.convert)
         else
-            --do nothing... for now
+            --noop
         end
 
     --- General FC ---
@@ -395,13 +388,7 @@ end
 function midcast(spell)
 
     --- Healing Potency Midcast ---
-    if spell.name == 'Cure' or 
-        spell.name == 'Cure II' or 
-        spell.name == 'Cure III' or 
-        spell.name == 'Cure IV' or
-        spell.name == 'Curaga' or
-        spell.name == 'Curaga II' or
-        spell.name == 'Cura' then
+    if spell.name:sub(1,3) == "Cur" and spell.name ~= "Cursna" then
         equip(sets.midcast.cure_potency)
 
     --- Enhancing Midcast ---
@@ -443,9 +430,6 @@ function midcast(spell)
 
     elseif spell.name == 'Circle Blade' then
         equip(sets.circle_blade)
-
-    elseif spell.name == 'Convert' then
-        equip(sets.convert)
 
     else 
         -- noop

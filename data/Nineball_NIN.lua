@@ -2,6 +2,8 @@
 
 function get_sets() 
     --send_command('input //gs showswaps')
+    send_command('input /macro book 7')
+    send_command('input /macro set 9')
 
     --[[
     sets.template = {
