@@ -1,4 +1,5 @@
 --include('organizer-lib')
+include('custom_helpers')
 
 function get_sets() 
     --send_command('input //gs showswaps')
@@ -282,12 +283,8 @@ function status_change(new, old)
         else
             equip(sets.melee)
         end
-
-    elseif player.in_combat then
-        equip(sets.dt)
-
     else
-        equip(sets.idle)
+        idle_check()
     end
 
 end

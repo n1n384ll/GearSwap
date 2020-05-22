@@ -1,4 +1,5 @@
 --include('organizer-lib')
+include('custom_helpers')
 
 function get_sets() 
     --send_command('input //gs showswaps')
@@ -438,27 +439,11 @@ function midcast(spell)
 end
 
 function aftercast(spell)
-    if player.hpp < 69 then
-            equip(sets.dt)
-    elseif player.status =='Engaged' then
-        equip(sets.melee)
-    elseif player.in_combat then
-            equip(sets.dt)
-    else
-        equip(sets.idle)
-    end
+    idle_check()
 end
 
 function status_change(new, old)
-    if player.hpp < 69 then
-            equip(sets.dt)
-    elseif player.status =='Engaged' then
-        equip(sets.melee)
-    elseif player.in_combat then
-            equip(sets.dt)
-    else
-        equip(sets.idle)
-    end
+    idle_check()
 end
 
 function buff_change(name, gain, buff_details)
@@ -466,4 +451,3 @@ end
 
 function buff_refresh(name, buff_details) 
 end
-
