@@ -33,7 +33,7 @@ function get_sets()
         neck="Twilight torque",
         left_ear="Infused earring",
         right_ear="Colossus's earring",
-        body="Jhakri Robe",
+        body="Jhakri Robe +1",
         hands="Atrophy Gloves +1",
         left_ring="Shneddick ring",
         right_ring="Warp ring",
@@ -198,7 +198,7 @@ function get_sets()
     sets.midcast.nuke = {
         ammo="Witchstone",
         head="Jhakri Coronal +1",
-        body="Jhakri Robe",
+        body="Jhakri Robe +1",
         hands="Jhakri Cuffs +1",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +1",
@@ -214,7 +214,7 @@ function get_sets()
     sets.midcast.feeb = {
         ammo="Esper Stone",
         head={ name="Vitiation Chapeau", augments={'Enfeebling Magic duration','Magic Accuracy',}},
-        body="Jhakri Robe",
+        body="Jhakri Robe +1",
         hands="Jhakri Cuffs +1",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet="Jhakri Pigaches +1",
@@ -252,7 +252,7 @@ function get_sets()
         neck="Iqabi necklace",
         left_ear="Dudgeon earring",
         right_ear="Heartseeker earring",
-        body="Jhakri robe",
+        body="Jhakri Robe +1",
         hands="Jhakri cuffs +1",
         left_ring="Mars's ring",
         right_ring="Enlivened ring",
@@ -265,7 +265,7 @@ function get_sets()
     sets.savage = {
         ammo="Paeapua",
         head="Jhakri Coronal +1",
-        body="Jhakri Robe",
+        body="Jhakri Robe +1",
         hands="Jhakri Cuffs +1",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +1",
@@ -281,7 +281,7 @@ function get_sets()
     sets.death_blossom = {
          ammo="Paeapua",
         head="Jhakri Coronal +1",
-        body="Jhakri Robe",
+        body="Jhakri Robe +1",
         hands="Jhakri Cuffs +1",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +1",
@@ -297,7 +297,7 @@ function get_sets()
     sets.circle_blade = {
         ammo="Demonry Core",
         head="Jhakri Coronal +1",
-        body="Jhakri Robe",
+        body="Jhakri Robe +1",
         hands="Jhakri Cuffs +1",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +1",
@@ -454,23 +454,24 @@ function midcast(spell)
 end
 
 function aftercast(spell)
-    if player.status =='Engaged' then
+    if player.hpp < 69 then
+            equip(sets.dt)
+    elseif player.status =='Engaged' then
         equip(sets.melee)
     elseif player.in_combat then
-        equip(sets.dt)
+            equip(sets.dt)
     else
         equip(sets.idle)
     end
-    --debug line - put the equip line after here to test set
-    --equip(sets.midcast.enhancing)
 end
 
 function status_change(new, old)
-    --print('staus_change ' .. new .. ' -> ' .. old)
-    if player.status =='Engaged' then
+    if player.hpp < 69 then
+            equip(sets.dt)
+    elseif player.status =='Engaged' then
         equip(sets.melee)
     elseif player.in_combat then
-        equip(sets.dt)
+            equip(sets.dt)
     else
         equip(sets.idle)
     end
