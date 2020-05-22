@@ -212,7 +212,7 @@ function aftercast(spell)
 end
 
 function status_change(new, old)
-	if player.status =='Engaged' then
+    if player.status =='Engaged' then
         equip(sets.melee)
     else
         equip(sets.idle)
