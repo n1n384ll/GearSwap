@@ -30,6 +30,9 @@ function get_sets()
     sets.melee = {
     }
 
+    sets.dw = {
+    }
+
     sets.dt = {
     }
 
@@ -47,35 +50,35 @@ end
 
 
 function pretarget(spell)
+    if spell.name == "Forbidden Key" then
+        return
+    -- Add stuff here
+    end
 end
 
 
 function precast(spell)
+    if spell.name == "Forbidden Key" then
+        return
+    -- Add stuff here
+    end
 end
 
 
 function midcast(spell)
+    if spell.name == "Forbidden Key" then
+        return
+    -- Add stuff here
+    end
 end
 
 
 function aftercast(spell)
-	if player.status =='Engaged' then
-        equip(sets.melee)
-    elseif player.in_combat then
-        equip(sets.dt)
-    else
-        equip(sets.idle)
-    end
+	idle_check()
 end
 
 function status_change(new, old)
-	if player.status =='Engaged' then
-        equip(sets.melee)
-    elseif player.in_combat then
-        equip(sets.dt)
-    else
-        equip(sets.idle)
-    end
+	idle_check()
 end
 
 function buff_change(name, gain, buff_details)

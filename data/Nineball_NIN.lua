@@ -3,8 +3,6 @@ include('custom_helpers')
 
 function get_sets() 
     --send_command('input //gs showswaps')
-    send_command('input /macro book 7')
-    send_command('input /macro set 9')
 
     --[[
     sets.template = {
@@ -125,6 +123,24 @@ function get_sets()
         back={ name="Yokaze Mantle", augments={'STR+1','Sklchn.dmg.+5%',}},
     }
 
+    sets.alien = {
+        main="Levante Dagger",
+        sub="Kaitsuburi",
+        ammo="Iron Gobbet",
+        head="Gavialis Helm",
+        body="Mekosu. Harness",
+        hands="Buremte Gloves",
+        legs="Dashing Subligar",
+        feet="Outrider Greaves",
+        neck="Breeze Gorget",
+        waist="Chaac Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Acumen Ring",
+        right_ring="Thundersoul Ring",
+        back={ name="Yokaze Mantle", augments={'STR+1','Sklchn.dmg.+5%',}},
+    }
+
     sets.midcast = {}
 
     sets.midcast.utsusemi = {
@@ -167,12 +183,18 @@ end
 
 
 function precast(spell)
+    if spell.type == "Item" then return end
+
     if spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi' then
         equip(sets.precast.utsusemi)
     elseif spell.skill == 'Ninjutsu' then
         equip(sets.precast.fc)
     elseif spell.type == "WeaponSkill" then
-        equip(sets.ws)
+        if spell.name == "Aeolian Edge" then
+            equip(sets.alien)
+        else
+            equip(sets.ws)
+        end
     elseif spell.type == "JobAbility" then
         if spell.name == "Innin" then
             equip(set_combine(sets.dt, {head="Iga Zukin +2"}))
@@ -189,8 +211,10 @@ function precast(spell)
         -- elseif spell.name == "" then
         --     equip(set_combine(sets.dt, {}))
         else
-            equip(sets.precast.fc)
+            equip(sets.dt)
         end
+    else
+        equip(sets.precast.fc)
     end
 end
 
@@ -213,15 +237,15 @@ function status_change(new, old)
 end
 
 function buff_change(name, gain, buff_details)
-    if name == 'Yonin' and not gain then
-        send_command('input /ja Yonin <me>')
-    elseif name == 'Innin' and not gain then
-        send_command('input /ja Innin <me>')
-    elseif name == 'Subtle Blow Plus' and not gain then
-        send_command('input /ma "Myochin: Ichi" <me>')
-    elseif name == 'Store TP' and not gain then
-        send_command('input /ma "Kakka: Ichi" <me>')
-    end
+    -- if name == 'Yonin' and not gain then
+    --     send_command('input /ja Yonin <me>')
+    -- elseif name == 'Innin' and not gain then
+    --     send_command('input /ja Innin <me>')
+    -- elseif name == 'Subtle Blow Plus' and not gain then
+    --     send_command('input /ma "Myoshu: Ichi" <me>')
+    -- elseif name == 'Store TP' and not gain then
+    --     send_command('input /ma "Kakka: Ichi" <me>')
+    -- end
 end
 
 function buff_refresh(name, buff_details) 

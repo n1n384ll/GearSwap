@@ -3,8 +3,6 @@ include('custom_helpers')
 
 function get_sets() 
     --send_command('input //gs showswaps')
-    send_command('input /macro book 1')
-    send_command('input /macro set 9')
 
     --[[
     sets.template = {
@@ -48,19 +46,40 @@ function get_sets()
 
     sets.dt = {
         ammo="Demonry Stone",
-        head="Despair Helm",
-        body="Vanya Robe",
-        hands="Atrophy Gloves +1",
-        legs="Dashing Subligar",
-        feet={ name="Gende. Galosh. +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song recast delay -3',}},
+        head="Aya. Zucchetto",
+        body="Ayanmo Corazza",
+        hands="Aya. Manopolas",
+        legs="Ayanmo Cosciales",
+        feet="Aya. Gambieras",
         neck="Twilight Torque",
         waist="Glassblower's Belt",
         left_ear="Infused Earring",
         right_ear="Colossus's Earring",
-        left_ring="Shneddick ring",
+        left_ring="Shneddick Ring",
         right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
         back="Shadow Mantle",
     }
+
+    sets.melee = {
+        ammo="Demonry Core",
+        head="Jhakri Coronal +1",
+        body="Jhakri Robe +1",
+        hands="Aya. Manopolas",
+        legs="Ayanmo Cosciales",
+        feet="Jhakri Pigaches +1",
+        neck="Iqabi Necklace",
+        waist="Sailfi Belt",
+        left_ear="Steelflash Earring",
+        right_ear="Bladeborn Earring",
+        left_ring="Mars's Ring",
+        right_ring="Enlivened Ring",
+        back="Letalis Mantle",
+    }
+
+    sets.dw = set_combine(sets.melee, {
+        left_ear="Dudgeon earring",
+        right_ear="Heartseeker earring",}
+    )
 
 --------- Pre Casts ---------
 
@@ -245,25 +264,7 @@ function get_sets()
     }
 
 
---- Misc. Melee and WS and JA stuffs ---
-    sets.melee = {
-        --main="",
-        --sub="",
-        --range="",
-        ammo="Demonry Core",
-        head="Jhakri coronal +1",
-        neck="Iqabi necklace",
-        left_ear="Dudgeon earring",
-        right_ear="Heartseeker earring",
-        body="Jhakri Robe +1",
-        hands="Jhakri cuffs +1",
-        left_ring="Mars's ring",
-        right_ring="Enlivened ring",
-        back="Letalis mantle",
-        waist="Sailfi belt",
-        legs="Jhakri Slops +1",
-        feet="Jhakri pigaches +1"
-    }
+--- WS and JA stuffs ---
 
     sets.savage = {
         ammo="Paeapua",
@@ -336,6 +337,8 @@ end
 
 
 function precast(spell)
+    if spell.type == "Item" then return end
+
 
     --- Curing FC ----
     if spell.name:sub(1,3) == "Cur" and spell.name ~= "Cursna" then

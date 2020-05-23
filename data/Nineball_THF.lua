@@ -3,8 +3,6 @@ include('custom_helpers')
 
 function get_sets() 
     --send_command('input //gs showswaps')
-    send_command('input /macro book 9')
-    send_command('input /macro set 9')
 
     --[[
     sets.template = {
@@ -199,6 +197,7 @@ end
 
 
 function precast(spell)
+    if spell.type == "Item" then return end
 
     --print("precast spell.type is:")
     --print(spell.type)
