@@ -49,7 +49,7 @@ function get_sets()
         head="Aya. Zucchetto",
         body="Ayanmo Corazza",
         hands="Aya. Manopolas",
-        legs="Ayanmo Cosciales",
+        legs="Aya. Cosciales +1",
         feet="Aya. Gambieras",
         neck="Twilight Torque",
         waist="Glassblower's Belt",
@@ -65,7 +65,7 @@ function get_sets()
         head="Jhakri Coronal +1",
         body="Jhakri Robe +1",
         hands="Aya. Manopolas",
-        legs="Ayanmo Cosciales",
+        legs="Aya. Cosciales +1",
         feet="Jhakri Pigaches +1",
         neck="Iqabi Necklace",
         waist="Sailfi Belt",
@@ -97,7 +97,7 @@ function get_sets()
         right_ring="Prolix ring",
         back="Swith cape",
         waist="Witful belt",
-        legs="Orvail Pants +1",
+        legs="Aya. Cosciales +1",
         feet="Merlinic crackows"
     }
 
@@ -113,7 +113,7 @@ function get_sets()
         right_ring="Prolix ring",
         back="Pahtli cape",
         waist="Witful Belt",
-        legs="Orvail Pants +1",
+        legs="Aya. Cosciales +1",
         feet="Merlinic crackows"
     }
 
@@ -129,7 +129,7 @@ function get_sets()
         right_ring="Prolix ring",
         back="Swith cape",
         waist="Siegel sash",
-        legs="Orvail Pants +1",
+        legs="Aya. Cosciales +1",
         feet="Merlinic crackows"
     }
 
@@ -138,7 +138,7 @@ function get_sets()
         head="Lethargy Chappel",
         body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
         hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
-        legs="Orvail Pants +1",
+        legs="Aya. Cosciales +1",
         feet={ name="Merlinic Crackows", augments={'Magic Damage +13','VIT+5','Mag. Acc.+6','"Mag.Atk.Bns."+15',}},
         neck="Orunmila's Torque",
         waist="Witful Belt",
@@ -154,7 +154,7 @@ function get_sets()
         head="Atro. Chapeau +1",
         body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
         hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
-        legs="Orvail Pants +1",
+        legs="Aya. Cosciales +1",
         feet={ name="Merlinic Crackows", augments={'Magic Damage +13','VIT+5','Mag. Acc.+6','"Mag.Atk.Bns."+15',}},
         neck="Magoraga Beads",
         waist="Witful Belt",
@@ -254,7 +254,7 @@ function get_sets()
         head="Atro. Chapeau +1",
         body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
         hands={ name="Bokwus Gloves", augments={'Mag. Acc.+9','MND+6','INT+2',}},
-        legs="Orvail Pants +1",
+        legs="Aya. Cosciales +1",
         feet={ name="Merlinic Crackows", augments={'Magic Damage +13','VIT+5','Mag. Acc.+6','"Mag.Atk.Bns."+15',}},
         neck="Orunmila's Torque",
         waist="Sailfi Belt", left_ear="Estq. Earring", right_ear="Loquac. Earring",
