@@ -29,13 +29,13 @@ function get_sets()
         --main="",
         --sub="",
         --range="",
-        ammo="Impatiens",
+        ammo="Demonry Stone",
         head="Vitiation chapeau",
         neck="Twilight torque",
         left_ear="Infused earring",
         right_ear="Colossus's earring",
         body="Jhakri Robe +1",
-        hands="Atrophy Gloves +1",
+        hands="Aya. Manopolas",
         left_ring="Shneddick ring",
         right_ring="Warp ring",
         back="Shadow mantle",
@@ -78,8 +78,8 @@ function get_sets()
 
     sets.dw = set_combine(sets.melee, {
         left_ear="Dudgeon earring",
-        right_ear="Heartseeker earring",}
-    )
+        right_ear="Heartseeker earring"
+    })
 
 --------- Pre Casts ---------
 
@@ -95,126 +95,78 @@ function get_sets()
         hands="Gendewitha gages",
         left_ring="Veneficium ring",
         right_ring="Prolix ring",
-        back="Swith cape",
+        back="Ogapepo cape",
         waist="Witful belt",
         legs="Aya. Cosciales +1",
-        feet="Merlinic crackows"
+        feet={ name="Merlinic Crackows", augments={'Accuracy+20','"Fast Cast"+1','Accuracy+6 Attack+6',}},
     }
 
-    sets.precast.fc_cure = {
-        ammo="Impatiens",
-        head="Atrophy chapeau +1",
-        neck="Orunmila's torque",
-        left_ear="Estoqueur's earring",
-        right_ear="Loquacious earring",
-        body="Heka's kalasiris",
-        hands="Gendewitha gages",
-        left_ring="Veneficium ring",
-        right_ring="Prolix ring",
-        back="Pahtli cape",
-        waist="Witful Belt",
-        legs="Aya. Cosciales +1",
-        feet="Merlinic crackows"
-    }
+    sets.precast.fc_cure = set_combine(sets.precast.fc, {
+        back="Pahtli Cape"
+    })
 
-    sets.precast.fc_enhancing = {
-        ammo="Impatiens",
-        head="Atrophy chapeau +1",
-        neck="Orunmila's torque",
-        left_ear="Estoqueur's earring",
-        right_ear="Loquacious earring",
-        body="Vitiation tabard",
-        hands="Gendewitha gages",
-        left_ring="Veneficium ring",
-        right_ring="Prolix ring",
-        back="Swith cape",
-        waist="Siegel sash",
-        legs="Aya. Cosciales +1",
-        feet="Merlinic crackows"
-    }
+    sets.precast.fc_enhancing = set_combine(sets.precast.fc, {
+        waist="Siegel Sash"
+    })
 
-    sets.precast.fc_feeb = {
-        ammo="Impatiens",
-        head="Lethargy Chappel",
-        body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
-        hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
-        legs="Aya. Cosciales +1",
-        feet={ name="Merlinic Crackows", augments={'Magic Damage +13','VIT+5','Mag. Acc.+6','"Mag.Atk.Bns."+15',}},
-        neck="Orunmila's Torque",
-        waist="Witful Belt",
-        left_ear="Estq. Earring",
-        right_ear="Loquac. Earring",
-        left_ring="Veneficium Ring",
-        right_ring="Prolix Ring",
-        back="Swith Cape"
-    }
+    sets.precast.fc_feeb = set_combine(sets.precast.fc, {
+        waist="Lethargy Chappel"
+    })
 
-    sets.precast.utsusemi = {
-        ammo="Impatiens",
-        head="Atro. Chapeau +1",
-        body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
-        hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
-        legs="Aya. Cosciales +1",
-        feet={ name="Merlinic Crackows", augments={'Magic Damage +13','VIT+5','Mag. Acc.+6','"Mag.Atk.Bns."+15',}},
-        neck="Magoraga Beads",
-        waist="Witful Belt",
-        left_ear="Estq. Earring",
-        right_ear="Loquac. Earring",
-        left_ring="Veneficium Ring",
-        right_ring="Prolix Ring",
-        back="Ogapepo Cape",
-    }
+    sets.precast.utsusemi = set_combine(sets.precast.fc, {
+        neck="Magoraga Beads"
+    })
 
 --------- Mid Casts ---------
 
     sets.midcast = {}
 
     sets.midcast.cure_potency = {
-        ammo="Impatiens",
+        ammo="Esper Stone",
         head="Vanya Hood",
+        body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
+        hands={ name="Bokwus Gloves", augments={'Mag. Acc.+9','MND+6','INT+2',}},
+        legs="Atrophy Tights +1",
+        feet={ name="Merlinic Crackows", augments={'Accuracy+20','"Fast Cast"+1','Accuracy+6 Attack+6',}},
         neck="Phalaina Locket",
-        left_ear="Estoqueur's earring",
-        right_ear="Loquacious earring",
-        body="Heka's kalasiris",
-        hands="Bokwus gloves",
-        left_ring="Asklepian ring",
-        right_ring="Sirona's ring",
-        back="Ghostfyre cape",
-        waist="Witful Belt",
-        legs="Atrophy tights +1",
-        feet="Gendewitha galoshes +1"
+        waist="Rumination Sash",
+        left_ear="Gifted Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Asklepian Ring",
+        right_ring="Sirona's Ring",
+        back="Ghostfyre Cape",
     }
 
     sets.midcast.enhancing = {
-        ammo="Impatiens",
-        head="Atrophy chapeau +1",
-        neck="Colossus's torque",
-        left_ear="Augmenting earring",
-        right_ear="Loquacious earring",
-        body="Vitiation tabard",
-        hands="Vitiation gloves",
-        left_ring="Sheltered ring",
-        right_ring="Prolix ring",
-        back="Estoqueur's cape",
-        waist="Olympus sash",
-        legs="Atrophy tights +1",
-        feet="Lethargy houseaux"
+        ammo="Esper Stone",
+        head="Befouled Crown",
+        body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
+        hands={ name="Vitiation Gloves", augments={'Enhancing Magic duration',}},
+        legs="Atrophy Tights +1",
+        feet="Leth. Houseaux",
+        neck="Colossus's Torque",
+        waist="Olympus Sash",
+        left_ear="Augment. Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Sheltered Ring",
+        right_ring="Prolix Ring",
+        back="Estoqueur's Cape",
     }
 
-    sets.midcast.buff_other = {
-        ammo="Impatiens",
-        head="Lethargy chapeau",
-        neck="Orunmila's torque",
-        left_ear="Estoqueur's earring",
-        right_ear="Loquacious earring",
-        body="Lethargy tabard",
-        hands="Lethargy gloves",
-        left_ring="Shneddick ring",
-        right_ring="Prolix ring",
-        back="Sucellos's cape",
-        waist="Sailfi belt",
-        legs="Lethargy fuseau",
-        feet="Lethargy houseaux"
+    sets.midcast.buff_other_duration = {
+        ammo="Esper Stone",
+        head="Lethargy Chappel",
+        body="Lethargy Sayon",
+        hands="Leth. Gantherots",
+        legs="Leth. Fuseau",
+        feet="Leth. Houseaux",
+        neck="Orunmila's Torque",
+        waist="Sailfi Belt",
+        left_ear="Estq. Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Sheltered Ring",
+        right_ring="Prolix Ring",
+        back="Estoqueur's Cape",
     }
 
     sets.midcast.nuke = {
@@ -241,7 +193,7 @@ function get_sets()
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet="Jhakri Pigaches +1",
         neck="Weike Torque",
-        waist="Ovate Rope",
+        waist="Rumination Sash",
         left_ear="Lifestorm Earring",
         right_ear="Psystorm Earring",
         left_ring="Jhakri Ring",
@@ -253,14 +205,16 @@ function get_sets()
         ammo="Impatiens",
         head="Atro. Chapeau +1",
         body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
-        hands={ name="Bokwus Gloves", augments={'Mag. Acc.+9','MND+6','INT+2',}},
+        hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
         legs="Aya. Cosciales +1",
-        feet={ name="Merlinic Crackows", augments={'Magic Damage +13','VIT+5','Mag. Acc.+6','"Mag.Atk.Bns."+15',}},
+        feet={ name="Merlinic Crackows", augments={'Accuracy+20','"Fast Cast"+1','Accuracy+6 Attack+6',}},
         neck="Orunmila's Torque",
-        waist="Sailfi Belt", left_ear="Estq. Earring", right_ear="Loquac. Earring",
+        waist="Sailfi Belt",
+        left_ear="Estq. Earring",
+        right_ear="Loquac. Earring",
         left_ring="Veneficium Ring",
         right_ring="Prolix Ring",
-        back="Shadow Mantle",
+        back="Swith Cape",
     }
 
 
@@ -277,13 +231,13 @@ function get_sets()
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Ambuscade Ring",
-        right_ring="Rajas Ring",
-        back="Letalis Mantle"
+        left_ring="Aquasoul Ring",
+        right_ring="Aquasoul Ring",
+        back="Letalis Mantle",
     }
 
     sets.death_blossom = {
-         ammo="Paeapua",
+        ammo="Paeapua",
         head="Jhakri Coronal +1",
         body="Jhakri Robe +1",
         hands="Jhakri Cuffs +1",
@@ -317,7 +271,7 @@ function get_sets()
     sets.convert = {
         ammo="Demonry Stone",
         head="Nahtirah Hat",
-        body="Pluviale",
+        body="Vitiation tabard",
         hands="Otomi Gloves",
         legs="Leth. Fuseau",
         feet="Atrophy Boots +1",
@@ -398,11 +352,11 @@ function midcast(spell)
     --- Enhancing Midcast ---
     elseif spell.skill == 'Enhancing Magic' then
         --- Enhancing Skill Max ---
-        if spell.target.type == 'SELF' then
+        if spell.target.type == 'SELF' or spell.name == "Phalanx II" then
             equip(sets.midcast.enhancing)
         --- Enhancing Others ---
         else
-            equip(sets.midcast.buff_other)
+            equip(sets.midcast.buff_other_duration)
         end
 
     --- Enfeebling Midcast ---
