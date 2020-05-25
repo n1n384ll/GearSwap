@@ -26,7 +26,7 @@ function get_sets()
     --]]
 
     sets.idle = {
-        ammo="Iron Gobbet",
+        ammo="Demonry Stone",
         head="Lithelimb Cap",
         body="Mekosu. Harness",
         hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
@@ -158,7 +158,7 @@ function get_sets()
     sets.precast.fc = {
         ammo="Impatiens",
         head="Lithelimb Cap",
-        body="Mekosu. Harness",
+        body="Mirke Wardecors",
         hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines",
@@ -189,6 +189,22 @@ function get_sets()
         back="Shadow Mantle",
     }
 
+    sets.midcast.enhancing = {
+        ammo="Impatiens",
+        head="Lithelimb Cap",
+        body="Mekosu. Harness",
+        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        legs="Ighwa Trousers",
+        feet="Skulk. Poulaines",
+        neck="Colossus's Torque",
+        waist="Chaac Belt",
+        left_ear="Infused Earring",
+        right_ear="Augment. Earring",
+        left_ring="Sheltered Ring",
+        right_ring="Prolix Ring",
+        back="Shadow Mantle",
+    }
+
 
 end
 
@@ -204,7 +220,8 @@ function precast(spell)
 
     if spell.skill == 'Elemental Magic' or
         spell.skill == 'Enfeebling Magic' or
-        spell.skill == 'Dark Magic' then
+        spell.skill == 'Dark Magic' or 
+        spell.skill == 'Enhancing Magic' then
         equip(sets.precast.fc)
 
     elseif spell.name == 'Aeolian Edge' then
@@ -227,12 +244,16 @@ function midcast(spell)
         spell.skill == 'Dark Magic' then
         equip(sets.midcast.macc)
 
+    elseif spell.skill == 'Enhancing Magic' then
+        equip(sets.midcast.enhancing)
+
+    elseif spell.type == 'WeaponSkill' then
+        equip(sets.shark_bite)
+
     elseif spell.name == 'Aeolian Edge' then
         equip(sets.alien_edge)
 
-    elseif spell.name == 'Shark Bite' or 
-        spell.type == 'WeaponSkill' then
-        print('used a ws')
+    elseif spell.name == 'Shark Bite' then
         equip(sets.shark_bite)
 
     else

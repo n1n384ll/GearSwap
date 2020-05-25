@@ -91,7 +91,7 @@ function get_sets()
         neck="Orunmila's torque",
         left_ear="Estoqueur's earring",
         right_ear="Loquacious earring",
-        body="Viti. Tabard +1",
+        body="Vitiation tabard",
         hands="Gendewitha gages",
         left_ring="Veneficium ring",
         right_ring="Prolix ring",
@@ -128,7 +128,7 @@ function get_sets()
     sets.midcast.cure_potency = {
         ammo="Esper Stone",
         head="Vanya Hood",
-        body={ name="Viti. Tabard +1", augments={'Enhances "Chainspell" effect',}},
+        body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
         hands={ name="Bokwus Gloves", augments={'Mag. Acc.+9','MND+6','INT+2',}},
         legs="Atrophy Tights +1",
         feet={ name="Merlinic Crackows", augments={'Accuracy+20','"Fast Cast"+1','Accuracy+6 Attack+6',}},
@@ -144,7 +144,7 @@ function get_sets()
     sets.midcast.enhancing = {
         ammo="Esper Stone",
         head="Befouled Crown",
-        body={ name="Viti. Tabard +1", augments={'Enhances "Chainspell" effect',}},
+        body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
         hands={ name="Vitiation Gloves", augments={'Enhancing Magic duration',}},
         legs="Atrophy Tights +1",
         feet="Leth. Houseaux +1",
@@ -223,7 +223,7 @@ function get_sets()
     sets.midcast.utsusemi = {
         ammo="Impatiens",
         head="Atro. Chapeau +1",
-        body={ name="Viti. Tabard +1", augments={'Enhances "Chainspell" effect',}},
+        body={ name="Vitiation Tabard", augments={'Enhances "Chainspell" effect',}},
         hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
         legs="Aya. Cosciales +1",
         feet={ name="Merlinic Crackows", augments={'Accuracy+20','"Fast Cast"+1','Accuracy+6 Attack+6',}},
@@ -290,7 +290,7 @@ function get_sets()
     sets.convert = {
         ammo="Demonry Stone",
         head="Nahtirah Hat",
-        body="Viti. Tabard +1",
+        body="Vitiation tabard",
         hands="Otomi Gloves",
         legs="Leth. Fuseau",
         feet="Atrophy Boots +1",
