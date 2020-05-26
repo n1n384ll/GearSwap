@@ -33,7 +33,7 @@ function get_sets()
         hands="Aya. Manopolas +1",
         legs="Aya. Cosciales +1",
         feet="Aya. Gambieras +1",
-        neck="Aoidos' Matinee",
+        neck="Twilight Torque",
         waist="Glassblower's Belt",
         left_ear="Infused Earring",
         right_ear="Colossus's Earring",
@@ -69,6 +69,19 @@ function get_sets()
     sets.precast = {}
 
     sets.precast.fc = {
+        ammo="Impatiens",
+        head="Nahtirah Hat",
+        body="Ayanmo Corazza +1",
+        hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
+        legs="Aya. Cosciales +1",
+        feet="Aya. Gambieras +1",
+        neck="Orunmila's Torque",
+        waist="Witful Belt",
+        left_ear="Infused Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Veneficium Ring",
+        right_ring="Prolix Ring",
+        back="Ogapepo Cape",
     }
 
     sets.precast.fc_song = {
@@ -86,6 +99,18 @@ function get_sets()
         right_ring="Prolix Ring",
         back="Ogapepo Cape",
     }
+
+    sets.precast.fc_cure = set_combine(sets.precast.fc, {
+        back="Pahtli Cape"
+    })
+
+    sets.precast.fc_enhancing = set_combine(sets.precast.fc, {
+        waist="Siegel Sash"
+    })
+
+    sets.precast.utsusemi = set_combine(sets.precast.fc, {
+        neck="Magoraga Beads"
+    })
 
     sets.midcast = {}
 
@@ -119,6 +144,38 @@ function get_sets()
         left_ring="Ayanmo Ring",
         right_ring="Sangoma Ring",
         back="Rhapsode's Cape",
+    }
+
+    sets.midcast.cure_potency = {
+        ammo="Quartz Tathlum +1",
+        head="Vanya Hood",
+        body="Brioso Just. +1",
+        hands={ name="Bokwus Gloves", augments={'Mag. Acc.+9','MND+6','INT+2',}},
+        legs={ name="Bihu Cannions +1", augments={'Enhances "Soul Voice" effect',}},
+        feet={ name="Gende. Galosh. +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song recast delay -3',}},
+        neck="Phalaina Locket",
+        waist="Rumination Sash",
+        left_ear="Lifestorm Earring",
+        right_ear="Influx Earring",
+        left_ring="Sirona's Ring",
+        right_ring="Asklepian Ring",
+        back="Pahtli Cape",
+    }
+
+    sets.midcast.enhancing = {
+        ammo="Esper Stone",
+        head="Nahtirah Hat",
+        body="Ayanmo Corazza +1",
+        hands="Aya. Manopolas +1",
+        legs="Aya. Cosciales +1",
+        feet={ name="Gende. Galosh. +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song recast delay -3',}},
+        neck="Colossus's Torque",
+        waist="Olympus Sash",
+        left_ear="Augment. Earring",
+        right_ear="Gifted Earring",
+        left_ring="Sangoma Ring",
+        right_ring="Prolix Ring",
+        back="Merciful Cape",
     }
 
     sets.savage = {
@@ -234,11 +291,15 @@ function midcast(spell)
 
     --- Enhancing Midcast ---
     elseif spell.skill == 'Enhancing Magic' then
-        equip(sets.midcast.enhancing)
+        if spell.name == 'Stoneskin' then
+            equip(set_combine(sets.midcast.enhancing, {right_ear = "Earthcry Earring", waist="Siegel Sash"}))
+        else
+            equip(sets.midcast.enhancing)
+        end
 
     --- Ninjutsu Midcast (for recast time) --- 
     elseif spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi' then
-        equip(sets.midcast.utsusemi)
+        equip(sets.precast.fc)
 
     --- Weaponskills Midcast (just to be sure) ---
     elseif spell.name == 'Savage Blade' then
