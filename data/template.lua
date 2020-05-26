@@ -1,28 +1,8 @@
 --include('organizer-lib')
+include('custom_helpers')
 
 function get_sets() 
     --send_command('input //gs showswaps')
-
-    --[[
-    sets.template = {
-        --main="",
-        --sub="",
-        --range="",
-        ammo="",
-        head="",
-        neck="",
-        left_ear="",
-        right_ear="",
-        body="",
-        hands="",
-        left_ring="",
-        right_ring="",
-        back="",
-        waist="",
-        legs="",
-        feet=""
-    }
-    --]]
 
     sets.idle = {
     }
@@ -50,35 +30,29 @@ end
 
 
 function pretarget(spell)
-    if spell.name == "Forbidden Key" then
-        return
-    -- Add stuff here
-    end
+    if spell.type == "Item" then return end
+
 end
 
 
 function precast(spell)
-    if spell.name == "Forbidden Key" then
-        return
-    -- Add stuff here
-    end
+    if spell.type == "Item" then return end
+
 end
 
 
 function midcast(spell)
-    if spell.name == "Forbidden Key" then
-        return
-    -- Add stuff here
-    end
+    if spell.type == "Item" then return end
+
 end
 
 
 function aftercast(spell)
-	idle_check()
+    idle_check()
 end
 
 function status_change(new, old)
-	idle_check()
+    idle_check()
 end
 
 function buff_change(name, gain, buff_details)

@@ -40,8 +40,8 @@ function get_sets()
         right_ring="Warp ring",
         back="Shadow mantle",
         waist="Fucho-no-obi",
-        legs="Dashing Subligar",
-        feet={ name="Gende. Galosh. +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song recast delay -3',}},
+        legs="Aya. Cosciales +1",
+        feet="Aya. Gambieras +1"
     }
 
     sets.dt = {
@@ -205,7 +205,7 @@ function get_sets()
     }
 
     sets.midcast.feeb = {
-        ammo="Esper Stone",
+        ammo="Quartz Tathlum +1",
         head={ name="Vitiation Chapeau", augments={'Enfeebling Magic duration','Magic Accuracy',}},
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +1",
