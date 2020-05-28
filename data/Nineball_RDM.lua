@@ -30,7 +30,7 @@ function get_sets()
         --sub="",
         --range="",
         ammo="Demonry Stone",
-        head="Vitiation chapeau",
+        head="Viti. Chapeau +1",
         neck="Twilight torque",
         left_ear="Infused earring",
         right_ear="Colossus's earring",
@@ -160,9 +160,9 @@ function get_sets()
     sets.midcast.buff_other_duration = {
         ammo="Esper Stone",
         head="Lethargy Chappel",
-        body="Lethargy Sayon",
-        hands="Leth. Gantherots",
-        legs="Leth. Fuseau",
+        body="Lethargy Sayon +1",
+        hands="Leth. Gantherots +1",
+        legs="Leth. Fuseau +1",
         feet="Leth. Houseaux +1",
         neck="Orunmila's Torque",
         waist="Sailfi Belt",
@@ -206,7 +206,7 @@ function get_sets()
 
     sets.midcast.feeb = {
         ammo="Quartz Tathlum +1",
-        head={ name="Vitiation Chapeau", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+        head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +1",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
@@ -292,7 +292,7 @@ function get_sets()
         head="Nahtirah Hat",
         body="Viti. Tabard +1",
         hands="Otomi Gloves",
-        legs="Leth. Fuseau",
+        legs="Leth. Fuseau +1",
         feet="Atrophy Boots +1",
         neck="Orunmila's Torque",
         waist="Mujin Obi",
@@ -353,6 +353,9 @@ function precast(spell)
     elseif spell.type == 'JobAbility' then 
         if spell.name == 'Convert' then
             equip(sets.convert)
+        elseif spell.name == 'Chainspell' then
+            windower.add_to_chat("I'VE GOT BLISTAHZ ON MAH FINGAHZ")
+            equip({body="Viti. Tabard +1"})
         else
             --noop
         end
@@ -376,7 +379,7 @@ function midcast(spell)
         --- Enhancing Skill Max ---
         if spell.target.type == 'SELF' then
             if spell.name:sub(1,7) == "Refresh" then
-                equip(set_combine(sets.precast.fc, {legs="Leth. Fuseau"}))
+                equip(set_combine(sets.precast.fc, {legs="Leth. Fuseau +1"}))
             elseif spell.name:sub(1,5) == "Haste" then
                 equip(sets.precast.fc)
             elseif spell.name == "Stoneskin" then
@@ -395,8 +398,11 @@ function midcast(spell)
 
     --- Enfeebling Midcast ---
     elseif spell.skill == 'Enfeebling Magic' then
-        if buffactive['Saboteur'] then
-            equip(set_combine(sets.midcast.feeb, {hands = "Leth. Gantherots"}))
+        if string.match(spell.name, "Dia") then
+            equip(set_combine(sets.precast.fc, {feet={name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+9','Pet: DEX+11','"Treasure Hunter"+2','Accuracy+15 Attack+15',}},waist="Chaac Belt"}))
+        elseif buffactive['Saboteur'] or
+            spell.type == 'WhiteMagic' then
+            equip(set_combine(sets.midcast.feeb, {hands = "Leth. Gantherots +1"}))
         else
             equip(sets.midcast.feeb)
         end

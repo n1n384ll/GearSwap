@@ -86,7 +86,7 @@ function get_sets()
 
     sets.precast.fc_song = {
         range="Gjallarhorn",
-        head="Aoidos' Calot +2",
+        head="Fili Calot",
         body="Sha'ir Manteel",
         hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
         legs={ name="Gendewitha Spats", augments={'Phys. dmg. taken -4%','Song spellcasting time -5%',}},
@@ -108,24 +108,20 @@ function get_sets()
         waist="Siegel Sash"
     })
 
-    sets.precast.utsusemi = set_combine(sets.precast.fc, {
-        neck="Magoraga Beads"
-    })
-
     sets.midcast = {}
 
     sets.midcast.song_buff = {
         range="Gjallarhorn",
-        head="Aoidos' Calot +2",
-        body="Aoidos' Hngrln. +2",
-        hands="Ad. Mnchtte. +2",
+        head="Fili Calot",
+        body="Fili Hongreline",
+        hands="Fili Manchettes",
         legs="Fili Rhingrave",
-        feet="Brioso Slippers",
-        neck="Aoidos' Matinee",
-        waist="Sailfi Belt",
-        left_ear="Novia Earring",
-        right_ear="Loquac. Earring",
-        left_ring="Sangoma Ring",
+        feet="Brioso Slippers +1",
+        neck="Moonbow Whistle",
+        waist="Harfner's Sash",
+        left_ear="Singing Earring",
+        right_ear="Wind Earring",
+        left_ring="Nereid Ring",
         right_ring="Prolix Ring",
         back="Rhapsode's Cape",
     }
@@ -137,7 +133,7 @@ function get_sets()
         hands="Aya. Manopolas +1",
         legs={ name="Bihu Cannions +1", augments={'Enhances "Soul Voice" effect',}},
         feet="Aya. Gambieras +1",
-        neck="Piper's Torque",
+        neck="Moonbow Whistle",
         waist="Ovate Rope",
         left_ear="Lifestorm Earring",
         right_ear="Psystorm Earring",
@@ -218,7 +214,9 @@ function precast(spell)
     if spell.type == "Item" then return end
 
     if spell.type == "BardSong" then
-        if spell.name == "Herb Pastoral" then 
+        if spell.targets['Enemy'] and string.match(spell.name, "Lullaby") then
+            equip(set_combine(sets.precast.fc_song, {range = "Gjallarhorn"}))
+        elseif spell.name == "Herb Pastoral" then 
             equip(set_combine(sets.precast.fc_song), {range = "Daurdabla"})
         else
             equip(sets.precast.fc_song)
@@ -232,9 +230,8 @@ function precast(spell)
     elseif spell.skill == 'Enhancing Magic' then
         equip(sets.precast.fc_enhancing)
 
-    --- Ninjutsu (Utsusemi) ---
-    elseif spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi'
-        then equip(sets.precast.utsusemi)
+    elseif spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi' then
+        equip(sets.precast.fc)
 
     --- Weaponskills ---
     elseif spell.name == 'Savage Blade' then
@@ -265,21 +262,21 @@ function midcast(spell)
 
     if spell.type == "BardSong" then
         if spell.name == "Herb Pastoral" then 
-            -- no swap, maybe reduce Herb Potency
+            -- no swap, maybe reduce Herb Duration?
         elseif spell.targets['Self'] or spell.targets['Party'] then
             if string.match(spell.name, "Paeon") then
                 windower.add_to_chat("Casting Paeon")
                 equip(set_combine(sets.midcast.song_buff, {head="Brioso Roundlet +1"}))
             elseif string.match(spell.name, "Scherzo") then
                 windower.add_to_chat("Casting Scherzo")
-                equip(set_combine(sets.midcast.song_buff, {feet="Aoidos' Cothrn. +2"}))
+                equip(set_combine(sets.midcast.song_buff, {feet="Fili Cothurnes"}))
             else
                 equip(sets.midcast.song_buff)
             end
         elseif spell.targets['Enemy'] then
             if string.match(spell.name, "Lullaby") then
                 windower.add_to_chat("GO2SLEEP!!")
-                equip(set_combine(sets.midcast.song_macc, {hands="Brioso Cuffs"}))
+                equip(set_combine(sets.midcast.song_macc, {range="Gjallarhorn", hands="Brioso Cuffs"}))
             else 
                 equip(sets.midcast.song_macc)
             end
@@ -293,6 +290,8 @@ function midcast(spell)
     elseif spell.skill == 'Enhancing Magic' then
         if spell.name == 'Stoneskin' then
             equip(set_combine(sets.midcast.enhancing, {right_ear = "Earthcry Earring", waist="Siegel Sash"}))
+        elseif spell.name == 'Haste' or 'Refresh' then
+            --noop - keep fc/Haste set TODO: replace with set to reduce recast
         else
             equip(sets.midcast.enhancing)
         end

@@ -4,11 +4,14 @@ dual_wield_jobs = S{'THF','BLU','NIN','DNC'}
 function idle_check()
     if player.hpp < 69 then
             equip(sets.dt)
+            windower.add_to_chat("--------- DT ON ---------")
     elseif player.status =='Engaged' then
     	if can_dual_wield() and sets.dw ~= nil then
     		equip(sets.dw)
-    	else 
+            -- windower.add_to_chat("COMMENCING HOSTILITIES (DW)")
+    	else
     		equip(sets.melee)
+            -- windower.add_to_chat("COMMENCING HOSTILITIES (SH)")
     	end
     else
         equip(sets.idle)
