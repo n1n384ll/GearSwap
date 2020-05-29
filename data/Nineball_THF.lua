@@ -27,10 +27,10 @@ function get_sets()
 
     sets.idle = {
         ammo="Demonry Stone",
-        head="Lithelimb Cap",
+        head="Meghanada Visor +1",
         body="Mekosu. Harness",
         hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
-        legs="Dashing Subligar",
+        legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
         neck="Twilight Torque",
         waist="Chaac Belt",
@@ -43,10 +43,10 @@ function get_sets()
 
     sets.melee = {
         ammo="Hagneia Stone",
-        head="Lithelimb Cap",
+        head="Meghanada Visor +1",
         body="Mekosu. Harness",
         hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
-        legs="Ighwa Trousers",
+        legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
         neck="Asperity Necklace",
         waist="Chaac Belt",
@@ -59,10 +59,10 @@ function get_sets()
 
     sets.dt = {
         ammo="Demonry Stone",
-        head="Lithelimb Cap",
+        head="Meghanada Visor +1",
         body="Mekosu. Harness",
         hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
-        legs="Ighwa Trousers",
+        legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
         neck="Twilight Torque",
         waist="Chaac Belt",
@@ -75,7 +75,7 @@ function get_sets()
 
     sets.sneak_attack = {
         ammo="Demonry Core",
-        head="Uk'uxkaj Cap",
+        head="Meghanada Visor +1",
         body="Mekosu. Harness",
         hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Manibozho Brais",
@@ -94,7 +94,7 @@ function get_sets()
         head="Lithelimb Cap",
         body="Mekosu. Harness",
         hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
-        legs="Ighwa Trousers",
+        legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
         neck="Houyi's Gorget",
         waist="Chaac Belt",
@@ -107,10 +107,10 @@ function get_sets()
 
     sets.sata = {
         ammo="Qirmiz Tathlum",
-        head="Lithelimb Cap",
+        head="Meghanada Visor +1",
         body="Mekosu. Harness",
         hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
-        legs="Ighwa Trousers",
+        legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
         neck="Houyi's Gorget",
         waist="Chaac Belt",
@@ -277,12 +277,8 @@ function aftercast(spell)
         else
             equip(sets.melee)
         end
-
-    elseif player.in_combat then
-        equip(sets.dt)
-
     else
-        equip(sets.idle)
+        idle_check()
     end
 end
 

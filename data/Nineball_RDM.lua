@@ -157,6 +157,13 @@ function get_sets()
         back="Estoqueur's Cape",
     }
 
+    sets.stoneskin = set_combine(sets.midcast.enhancing, {
+        neck="Stone Gorget",
+        right_ear="Earthcry Earring",
+        waist="Siegel Sash",
+        hands="Stone Mufflers"
+    })
+
     sets.midcast.buff_other_duration = {
         ammo="Esper Stone",
         head="Lethargy Chappel",
@@ -383,7 +390,7 @@ function midcast(spell)
             elseif spell.name:sub(1,5) == "Haste" then
                 equip(sets.precast.fc)
             elseif spell.name == "Stoneskin" then
-                equip(set_combine(sets.midcast.enhancing, {right_ear = "Earthcry Earring", waist="Siegel Sash"}))
+                equip(sets.stoneskin)
             else
                 equip(sets.midcast.enhancing)
             end
@@ -416,7 +423,7 @@ function midcast(spell)
         end
     --- Dark Midcast ---
     elseif spell.skill == 'Dark Magic' then
-        equip(sets.midcast.nuke)    
+        equip(sets.midcast.nuke)
 
     --- Ninjutsu Midcast (for recast time) --- 
     elseif spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi' then

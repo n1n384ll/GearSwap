@@ -130,7 +130,7 @@ function get_sets()
         range="Gjallarhorn",
         head="Brioso Roundlet +1",
         body="Brioso Just. +1",
-        hands="Aya. Manopolas +1",
+        hands="Inyan. Dastanas +1",
         legs={ name="Bihu Cannions +1", augments={'Enhances "Soul Voice" effect',}},
         feet="Aya. Gambieras +1",
         neck="Moonbow Whistle",
@@ -216,6 +216,7 @@ function precast(spell)
     if spell.type == "BardSong" then
         if spell.targets['Enemy'] and string.match(spell.name, "Lullaby") then
             equip(set_combine(sets.precast.fc_song, {range = "Gjallarhorn"}))
+            -- equip(set_combine(sets.precast.fc_song, {range = "Daurdabla"}))
         elseif spell.name == "Herb Pastoral" then 
             equip(set_combine(sets.precast.fc_song), {range = "Daurdabla"})
         else
@@ -270,6 +271,8 @@ function midcast(spell)
             elseif string.match(spell.name, "Scherzo") then
                 windower.add_to_chat("Casting Scherzo")
                 equip(set_combine(sets.midcast.song_buff, {feet="Fili Cothurnes"}))
+            elseif string.match(spell.name, "Madrigal") or string.match(spell.name, "Prelude") then
+                equip(set_combine(sets.midcast.song_buff, {back="Intarabus's Cape"}))
             else
                 equip(sets.midcast.song_buff)
             end
@@ -277,6 +280,7 @@ function midcast(spell)
             if string.match(spell.name, "Lullaby") then
                 windower.add_to_chat("GO2SLEEP!!")
                 equip(set_combine(sets.midcast.song_macc, {range="Gjallarhorn", hands="Brioso Cuffs"}))
+                -- equip(set_combine(sets.midcast.song_macc, {range="Daurdabla", hands="Brioso Cuffs"}))
             else 
                 equip(sets.midcast.song_macc)
             end
