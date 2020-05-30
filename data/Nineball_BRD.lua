@@ -4,28 +4,6 @@ include('custom_helpers')
 local inspect = require 'inspect'
 
 function get_sets() 
-    --send_command('input //gs showswaps')
-
-    --[[
-    sets.template = {
-        --main="",
-        --sub="",
-        --range="",
-        ammo="",
-        head="",
-        neck="",
-        left_ear="",
-        right_ear="",
-        body="",
-        hands="",
-        left_ring="",
-        right_ring="",
-        back="",
-        waist="",
-        legs="",
-        feet=""
-    }
-    --]]
 
     sets.idle = {
         head="Aya. Zucchetto",
@@ -81,7 +59,7 @@ function get_sets()
         right_ear="Loquac. Earring",
         left_ring="Veneficium Ring",
         right_ring="Prolix Ring",
-        back="Ogapepo Cape",
+        back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},
     }
 
     sets.precast.fc_song = {
@@ -97,7 +75,7 @@ function get_sets()
         right_ear="Loquac. Earring",
         left_ring="Veneficium Ring",
         right_ring="Prolix Ring",
-        back="Ogapepo Cape",
+        back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},
     }
 
     sets.precast.fc_cure = set_combine(sets.precast.fc, {
@@ -139,7 +117,7 @@ function get_sets()
         right_ear="Psystorm Earring",
         left_ring="Ayanmo Ring",
         right_ring="Sangoma Ring",
-        back="Rhapsode's Cape",
+        back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},
     }
 
     sets.midcast.cure_potency = {
@@ -272,7 +250,7 @@ function midcast(spell)
                 windower.add_to_chat("Casting Scherzo")
                 equip(set_combine(sets.midcast.song_buff, {feet="Fili Cothurnes"}))
             elseif string.match(spell.name, "Madrigal") or string.match(spell.name, "Prelude") then
-                equip(set_combine(sets.midcast.song_buff, {back="Intarabus's Cape"}))
+                equip(set_combine(sets.midcast.song_buff, {back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},}))
             else
                 equip(sets.midcast.song_buff)
             end
