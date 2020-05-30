@@ -26,9 +26,6 @@ function get_sets()
     --]]
 
     sets.idle = {
-        --main="",
-        --sub="",
-        --range="",
         ammo="Demonry Stone",
         head="Viti. Chapeau +1",
         neck="Twilight torque",
@@ -59,6 +56,16 @@ function get_sets()
         right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
         back="Shadow Mantle",
     }
+
+    sets.refresh = set_combine(sets.dt, {
+        head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+        body="Jhakri Robe +2",
+        hands="Serpentes Cuffs",
+        legs={ name="Stearc Subligar", augments={'"Refresh"+1','MP recovered while healing +1',}},
+        feet="Serpentes Sabots",
+        waist="Fucho-no-Obi",
+        left_ring="Sheltered Ring",
+    })
 
     sets.melee = {
         ammo="Demonry Core",
@@ -110,7 +117,7 @@ function get_sets()
     })
 
     sets.precast.fc_feeb = set_combine(sets.precast.fc, {
-        waist="Lethargy Chappel"
+        head="Lethargy Chappel"
     })
 
     sets.precast.utsusemi = set_combine(sets.precast.fc, {
@@ -161,14 +168,15 @@ function get_sets()
         neck="Stone Gorget",
         right_ear="Earthcry Earring",
         waist="Siegel Sash",
-        hands="Stone Mufflers"
+        hands="Stone Mufflers",
+        legs="Shedir Seraweels"
     })
 
     sets.midcast.buff_other_duration = {
         ammo="Esper Stone",
         head="Lethargy Chappel",
         body="Lethargy Sayon +1",
-        hands="Leth. Gantherots +1",
+        hands="Atrophy Gloves +1",
         legs="Leth. Fuseau +1",
         feet="Leth. Houseaux +1",
         neck="Orunmila's Torque",
@@ -245,8 +253,23 @@ function get_sets()
 
 
 --- WS and JA stuffs ---
+    sets.ws = {
+        ammo="Paeapua",
+        head="Jhakri Coronal +1",
+        body="Jhakri Robe +2",
+        hands="Aya. Manopolas +1",
+        legs="Jhakri Slops +1",
+        feet="Jhakri Pigaches +1",
+        neck="Iqabi Necklace",
+        waist="Windbuffet Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Apate Ring",
+        right_ring="Rajas Ring",
+        back="Letalis Mantle",
+    }
 
-    sets.savage = {
+    sets.ws['Savage Blade'] = {
         ammo="Paeapua",
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
@@ -262,7 +285,7 @@ function get_sets()
         back="Letalis Mantle",
     }
 
-    sets.death_blossom = {
+    sets.ws['Death Blossom'] = {
         ammo="Paeapua",
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
@@ -278,7 +301,7 @@ function get_sets()
         back="Letalis Mantle",
     }
 
-    sets.circle_blade = {
+    sets.ws['Circle Blade'] = {
         ammo="Demonry Core",
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
@@ -348,14 +371,12 @@ function precast(spell)
         then equip(sets.precast.utsusemi)
 
     --- Weaponskills ---
-    elseif spell.name == 'Savage Blade' then
-        equip(sets.savage)
-
-    elseif spell.name == 'Death Blossom' then
-        equip(sets.death_blossom)
-
-    elseif spell.name == 'Circle Blade' then
-        equip(sets.circle_blade)
+    elseif spell.type == 'WeaponSkill' then
+        if sets.ws[spell.name] ~= nil then
+            equip(sets.ws[spell.name])
+        else
+            equip(sets.ws)
+        end
 
     elseif spell.type == 'JobAbility' then 
         if spell.name == 'Convert' then
@@ -430,14 +451,12 @@ function midcast(spell)
         equip(sets.midcast.utsusemi)
 
     --- Weaponskills Midcast (just to be sure) ---
-    elseif spell.name == 'Savage Blade' then
-        equip(sets.savage)
-
-    elseif spell.name == 'Death Blossom' then
-        equip(sets.death_blossom)
-
-    elseif spell.name == 'Circle Blade' then
-        equip(sets.circle_blade)
+    elseif spell.type == 'WeaponSkill' then
+        if sets.ws[spell.name] ~= nil then
+            equip(sets.ws[spell.name])
+        else
+            equip(sets.ws)
+        end
 
     else 
         -- noop
