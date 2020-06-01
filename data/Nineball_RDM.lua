@@ -2,6 +2,9 @@
 include('custom_helpers')
 
 function get_sets() 
+
+    int_macc_cape = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10',}}
+
     --send_command('input //gs showswaps')
 
     --[[
@@ -172,6 +175,10 @@ function get_sets()
         legs="Shedir Seraweels"
     })
 
+    sets.aquaveil = set_combine(sets.midcast.enhancing, {
+        legs="Shedir Seraweels"  
+    })
+
     sets.midcast.buff_other_duration = {
         ammo="Esper Stone",
         head="Lethargy Chappel",
@@ -192,7 +199,7 @@ function get_sets()
         ammo="Witchstone",
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +1",
+        hands="Jhakri Cuffs +2",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +1",
         neck="Eddy Necklace",
@@ -201,13 +208,13 @@ function get_sets()
         right_ear="Novio Earring",
         left_ring="Jhakri Ring",
         right_ring="Strendu Ring",
-        back={ name="Sucellos's Cape", augments={'Mag. Acc+20 /Mag. Dmg.+20',}},
+        back=int_macc_cape
     }
 
     sets.midcast.impact = {
         ammo="Witchstone",
         body="Twilight Cloak",
-        hands="Jhakri Cuffs +1",
+        hands="Jhakri Cuffs +2",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +1",
         neck="Eddy Necklace",
@@ -216,14 +223,14 @@ function get_sets()
         right_ear="Novio Earring",
         left_ring="Jhakri Ring",
         right_ring="Strendu Ring",
-        back={ name="Sucellos's Cape", augments={'Mag. Acc+20 /Mag. Dmg.+20',}},
+        back=int_macc_cape
     }
 
     sets.midcast.feeb = {
         ammo="Quartz Tathlum +1",
         head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
         body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +1",
+        hands="Jhakri Cuffs +2",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet="Jhakri Pigaches +1",
         neck="Weike Torque",
@@ -232,7 +239,7 @@ function get_sets()
         right_ear="Psystorm Earring",
         left_ring="Jhakri Ring",
         right_ring="Sangoma Ring",
-        back={ name="Sucellos's Cape", augments={'Mag. Acc+20 /Mag. Dmg.+20',}}
+        back=int_macc_cape
     }
 
     sets.midcast.utsusemi = {
@@ -273,7 +280,7 @@ function get_sets()
         ammo="Paeapua",
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +1",
+        hands="Jhakri Cuffs +2",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +1",
         neck="Breeze Gorget",
@@ -289,7 +296,7 @@ function get_sets()
         ammo="Paeapua",
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +1",
+        hands="Jhakri Cuffs +2",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +1",
         neck="Breeze Gorget",
@@ -305,7 +312,7 @@ function get_sets()
         ammo="Demonry Core",
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +1",
+        hands="Jhakri Cuffs +2",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +1",
         neck="Asperity Necklace",
@@ -412,6 +419,8 @@ function midcast(spell)
                 equip(sets.precast.fc)
             elseif spell.name == "Stoneskin" then
                 equip(sets.stoneskin)
+            elseif spell.name == "Aquaveil" then
+                equip(sets.aquaveil)
             else
                 equip(sets.midcast.enhancing)
             end
