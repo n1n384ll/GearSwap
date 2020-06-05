@@ -164,7 +164,23 @@ function get_sets()
         right_ear="Loquac. Earring",
         left_ring="Sheltered Ring",
         right_ring="Prolix Ring",
-        back="Estoqueur's Cape",
+        back="Estoqueur's Cape"
+    }
+
+    sets.midcast.enhancing_duration = {
+        ammo="Impatiens",
+        head="Atro. Chapeau +1",
+        body={ name="Viti. Tabard +1", augments={'Enhances "Chainspell" effect',}},
+        hands="Atrophy Gloves +1",
+        legs="Aya. Cosciales +1",
+        feet="Leth. Houseaux +1",
+        neck="Orunmila's Torque",
+        waist="Sailfi Belt",
+        left_ear="Estq. Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Sheltered Ring",
+        right_ring="Prolix Ring",
+        back=int_macc_cape
     }
 
     sets.stoneskin = set_combine(sets.midcast.enhancing, {
@@ -192,7 +208,7 @@ function get_sets()
         right_ear="Loquac. Earring",
         left_ring="Sheltered Ring",
         right_ring="Prolix Ring",
-        back="Estoqueur's Cape",
+        back=int_macc_cape
     }
 
     sets.midcast.nuke = {
@@ -203,7 +219,7 @@ function get_sets()
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +1",
         neck="Eddy Necklace",
-        waist="Othila Sash",
+        waist="Refoccilation Stone",
         left_ear="Hecate's Earring",
         right_ear="Novio Earring",
         left_ring="Jhakri Ring",
@@ -413,10 +429,11 @@ function midcast(spell)
     elseif spell.skill == 'Enhancing Magic' then
         --- Enhancing Skill Max ---
         if spell.target.type == 'SELF' then
-            if spell.name:sub(1,7) == "Refresh" then
-                equip(set_combine(sets.precast.fc, {legs="Leth. Fuseau +1"}))
-            elseif spell.name:sub(1,5) == "Haste" then
-                equip(sets.precast.fc)
+            if string.match(spell.name, "Refresh") then
+                equip(set_combine(sets.midcast.enhancing_duration, {legs="Leth. Fuseau +1"}))
+            elseif string.match(spell.name, "Haste") or 
+                string.match(spell.name, "Regen") then
+                equip(sets.midcast.enhancing_duration)
             elseif spell.name == "Stoneskin" then
                 equip(sets.stoneskin)
             elseif spell.name == "Aquaveil" then

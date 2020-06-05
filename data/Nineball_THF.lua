@@ -29,7 +29,7 @@ function get_sets()
         ammo="Demonry Stone",
         head="Meghanada Visor +1",
         body="Mekosu. Harness",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
         neck="Twilight Torque",
@@ -45,7 +45,7 @@ function get_sets()
         ammo="Hagneia Stone",
         head="Meghanada Visor +1",
         body="Mekosu. Harness",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
         neck="Asperity Necklace",
@@ -61,7 +61,7 @@ function get_sets()
         ammo="Demonry Stone",
         head="Meghanada Visor +1",
         body="Mekosu. Harness",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
         neck="Twilight Torque",
@@ -77,7 +77,7 @@ function get_sets()
         ammo="Demonry Core",
         head="Meghanada Visor +1",
         body="Mekosu. Harness",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Manibozho Brais",
         feet="Skulk. Poulaines +1",
         neck="Asperity Necklace",
@@ -93,7 +93,7 @@ function get_sets()
         ammo="Qirmiz Tathlum",
         head="Lithelimb Cap",
         body="Mekosu. Harness",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
         neck="Houyi's Gorget",
@@ -109,7 +109,7 @@ function get_sets()
         ammo="Qirmiz Tathlum",
         head="Meghanada Visor +1",
         body="Mekosu. Harness",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
         neck="Houyi's Gorget",
@@ -125,7 +125,7 @@ function get_sets()
         ammo="Demonry Core",
         head="Uk'uxkaj Cap",
         body="Mekosu. Harness",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines +1",
         neck="Breeze Gorget",
@@ -141,7 +141,7 @@ function get_sets()
         ammo="Demonry Core",
         head="Umbani Cap",
         body="Mekosu. Harness",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines +1",
         neck="Breeze Gorget",
@@ -159,7 +159,7 @@ function get_sets()
         ammo="Impatiens",
         head="Lithelimb Cap",
         body="Mirke Wardecors",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines +1",
         neck="Orunmila's Torque",
@@ -174,26 +174,26 @@ function get_sets()
     sets.midcast = {}
 
     sets.midcast.macc = {
-        ammo="Demonry Stone",
+        ammo="Quartz Tathlum +1",
         head="Uk'uxkaj Cap",
         body="Mekosu. Harness",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines +1",
         neck="Weike Torque",
-        waist="Olympus Sash",
+        waist="Chaac Belt",
         left_ear="Lifestorm Earring",
         right_ear="Psystorm Earring",
         left_ring="Perception Ring",
         right_ring="Sangoma Ring",
-        back="Shadow Mantle",
+        back="Merciful Cape",
     }
 
     sets.midcast.enhancing = {
         ammo="Impatiens",
         head="Lithelimb Cap",
         body="Mekosu. Harness",
-        hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines +1",
         neck="Colossus's Torque",
@@ -205,6 +205,21 @@ function get_sets()
         back="Shadow Mantle",
     }
 
+    sets.midcast.waltz = {
+        ammo="Demonry Stone",
+        head="Uk'uxkaj Cap",
+        body="Mekosu. Harness",
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
+        legs="Dashing Subligar",
+        feet="Skulk. Poulaines +1",
+        neck="Twilight Torque",
+        waist="Chaac Belt",
+        left_ear="Infused Earring",
+        right_ear="Colossus's Earring",
+        left_ring={ name="Dark Ring", augments={'Enemy crit. hit rate -2','Spell interruption rate down -4%','Phys. dmg. taken -4%',}},
+        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
+        back="Shadow Mantle",
+    }
 
 end
 
@@ -223,6 +238,9 @@ function precast(spell)
         spell.skill == 'Dark Magic' or 
         spell.skill == 'Enhancing Magic' then
         equip(sets.precast.fc)
+
+    elseif string.match(spell.name, "Waltz") then
+        equip(sets.midcast.waltz)
 
     elseif spell.name == 'Aeolian Edge' then
         equip(sets.alien_edge)
@@ -246,6 +264,9 @@ function midcast(spell)
 
     elseif spell.skill == 'Enhancing Magic' then
         equip(sets.midcast.enhancing)
+
+    elseif string.match(spell.name, "Waltz") then
+        equip(sets.midcast.waltz)
 
     elseif spell.type == 'WeaponSkill' then
         equip(sets.shark_bite)
