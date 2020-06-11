@@ -99,8 +99,8 @@ function get_sets()
         waist="Harfner's Sash",
         left_ear="Singing Earring",
         right_ear="Wind Earring",
-        left_ring="Nereid Ring",
-        right_ring="Prolix Ring",
+        left_ring="Stikini Ring",
+        right_ring="Stikini Ring",
         back="Rhapsode's Cape",
     }
 
@@ -115,8 +115,8 @@ function get_sets()
         waist="Ovate Rope",
         left_ear="Lifestorm Earring",
         right_ear="Psystorm Earring",
-        left_ring="Ayanmo Ring",
-        right_ring="Sangoma Ring",
+        left_ring="Stikini Ring",
+        right_ring="Stikini Ring",
         back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},
     }
 
@@ -143,12 +143,12 @@ function get_sets()
         hands="Aya. Manopolas +1",
         legs="Aya. Cosciales +1",
         feet={ name="Gende. Galosh. +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song recast delay -3',}},
-        neck="Colossus's Torque",
+        neck="Melic Torque",
         waist="Olympus Sash",
         left_ear="Augment. Earring",
         right_ear="Gifted Earring",
-        left_ring="Sangoma Ring",
-        right_ring="Prolix Ring",
+        left_ring="Stikini Ring",
+        right_ring="Stikini Ring",
         back="Merciful Cape",
     }
 
@@ -163,8 +163,8 @@ function get_sets()
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Aquasoul Ring",
-        right_ring="Aquasoul Ring",
+        left_ring="Rufescent Ring",
+        right_ring="Apate Ring",
         back="Letalis Mantle",
     }
 
@@ -190,6 +190,10 @@ function precast(spell)
 
 
     if spell.type == "Item" then return end
+
+    if outOfWeaponSkillRange(spell) then
+            cancel_spell() return
+    end
 
     if spell.type == "BardSong" then
         if spell.targets['Enemy'] and string.match(spell.name, "Lullaby") then

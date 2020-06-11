@@ -3,7 +3,7 @@ include('custom_helpers')
 
 function get_sets() 
 
-    int_macc_cape = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10',}}
+    int_macc_cape = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}}
 
     --send_command('input //gs showswaps')
 
@@ -81,12 +81,28 @@ function get_sets()
         waist="Windbuffet Belt",
         left_ear="Steelflash Earring",
         right_ear="Bladeborn Earring",
-        left_ring="Mars's Ring",
+        left_ring="Ayanmo Ring",
         right_ring="Enlivened Ring",
         back="Letalis Mantle",
     }
 
-    sets.dw = set_combine(sets.melee, {
+    sets.melee.enspell = {
+        ammo="Demonry Core",
+        head="Aya. Zucchetto",
+        body="Ayanmo Corazza +1",
+        hands="Aya. Manopolas +1",
+        legs="Viti. Tights +1",
+        feet="Aya. Gambieras +1",
+        neck="Iqabi Necklace",
+        waist="Sailfi Belt",
+        left_ear="Steelflash Earring",
+        right_ear="Bladeborn Earring",
+        left_ring="Ayanmo Ring",
+        right_ring="Enlivened Ring",
+        back="Letalis Mantle",
+    }
+
+    sets.dw = set_combine(sets.melee.enspell, {
         left_ear="Dudgeon earring",
         right_ear="Heartseeker earring"
     })
@@ -155,15 +171,16 @@ function get_sets()
         ammo="Esper Stone",
         head="Befouled Crown",
         body={ name="Viti. Tabard +1", augments={'Enhances "Chainspell" effect',}},
-        hands={ name="Vitiation Gloves", augments={'Enhancing Magic duration',}},
+        hands={ name="Viti. Gloves +1", augments={'Enhancing Magic duration',}},
+        -- legs="Viti. Tights +1",
         legs="Atrophy Tights +1",
         feet="Leth. Houseaux +1",
-        neck="Colossus's Torque",
+        neck="Melic Torque",
         waist="Olympus Sash",
-        left_ear="Augment. Earring",
-        right_ear="Loquac. Earring",
-        left_ring="Sheltered Ring",
-        right_ring="Prolix Ring",
+        left_ear="Mimir Earring",
+        right_ear="Augment. Earring",
+        left_ring="Stikini Ring",
+        right_ring="Stikini Ring",
         back="Estoqueur's Cape"
     }
 
@@ -206,8 +223,8 @@ function get_sets()
         waist="Sailfi Belt",
         left_ear="Estq. Earring",
         right_ear="Loquac. Earring",
-        left_ring="Sheltered Ring",
-        right_ring="Prolix Ring",
+        left_ring="Stikini Ring",
+        right_ring="Stikini Ring",
         back=int_macc_cape
     }
 
@@ -220,8 +237,8 @@ function get_sets()
         feet="Jhakri Pigaches +1",
         neck="Eddy Necklace",
         waist="Refoccilation Stone",
-        left_ear="Hecate's Earring",
-        right_ear="Novio Earring",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
         left_ring="Jhakri Ring",
         right_ring="Strendu Ring",
         back=int_macc_cape
@@ -235,8 +252,8 @@ function get_sets()
         feet="Jhakri Pigaches +1",
         neck="Eddy Necklace",
         waist="Othila Sash",
-        left_ear="Hecate's Earring",
-        right_ear="Novio Earring",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
         left_ring="Jhakri Ring",
         right_ring="Strendu Ring",
         back=int_macc_cape
@@ -249,12 +266,12 @@ function get_sets()
         hands="Jhakri Cuffs +2",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet="Jhakri Pigaches +1",
-        neck="Weike Torque",
+        neck="Henic Torque",
         waist="Rumination Sash",
-        left_ear="Lifestorm Earring",
-        right_ear="Psystorm Earring",
-        left_ring="Jhakri Ring",
-        right_ring="Sangoma Ring",
+        left_ear="Estq. Earring",
+        right_ear="Vor Earring",
+        left_ring="Stikini Ring",
+        right_ring="Stikini Ring",
         back=int_macc_cape
     }
 
@@ -303,10 +320,26 @@ function get_sets()
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Aquasoul Ring",
-        right_ring="Aquasoul Ring",
+        left_ring="Rufescent Ring",
+        right_ring="Apate Ring",
         back="Letalis Mantle",
     }
+
+    -- sets.ws['Death Blossom'] = {
+    --     ammo="Impatiens",
+    --     head=empty,
+    --     body=empty,
+    --     hands=empty,
+    --     legs=empty,
+    --     feet=empty,
+    --     neck=empty,
+    --     waist=empty,
+    --     left_ear=empty,
+    --     right_ear=empty,
+    --     left_ring=empty,
+    --     right_ring=empty,
+    --     back=empty,
+    -- }
 
     sets.ws['Death Blossom'] = {
         ammo="Paeapua",
@@ -318,9 +351,9 @@ function get_sets()
         neck="Breeze Gorget",
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
-        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Apate Ring",
-        right_ring="Rajas Ring",
+        right_ear="Brutal Earring",
+        left_ring="Rufescent Ring",
+        right_ring="Apate Ring",
         back="Letalis Mantle",
     }
 
@@ -335,8 +368,8 @@ function get_sets()
         waist="Aqua Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Pyrosoul Ring",
-        right_ring="Pyrosoul Ring",
+        left_ring="Rufescent Ring",
+        right_ring="Apate Ring",
         back="Letalis Mantle"
     }
 
@@ -361,10 +394,12 @@ end
 function pretarget(spell)
 end
 
-
 function precast(spell)
     if spell.type == "Item" then return end
 
+    if outOfWeaponSkillRange(spell) then
+            cancel_spell() return
+    end
 
     --- Curing FC ----
     if spell.name:sub(1,3) == "Cur" and spell.name ~= "Cursna" then
@@ -394,7 +429,7 @@ function precast(spell)
         then equip(sets.precast.utsusemi)
 
     --- Weaponskills ---
-    elseif spell.type == 'WeaponSkill' then
+    elseif spell.type == 'WeaponSkill' and player.tp >= 1000 then
         if sets.ws[spell.name] ~= nil then
             equip(sets.ws[spell.name])
         else
@@ -411,15 +446,18 @@ function precast(spell)
             --noop
         end
 
-    --- General FC ---
-    else 
+    --- General FC for magic ---
+    elseif spell.type ~= 'WeaponSkill' then
         equip(sets.precast.fc)
 
+    else
+        --noop
     end
 end
 
 
 function midcast(spell)
+    -- windower.add_to_chat(tostring(player.tp))
 
     --- Healing Potency Midcast ---
     if spell.name:sub(1,3) == "Cur" and spell.name ~= "Cursna" then
@@ -477,7 +515,7 @@ function midcast(spell)
         equip(sets.midcast.utsusemi)
 
     --- Weaponskills Midcast (just to be sure) ---
-    elseif spell.type == 'WeaponSkill' then
+    elseif spell.type == 'WeaponSkill' and player.tp >= 1000 then
         if sets.ws[spell.name] ~= nil then
             equip(sets.ws[spell.name])
         else

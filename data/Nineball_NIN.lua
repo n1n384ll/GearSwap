@@ -4,6 +4,8 @@ include('custom_helpers')
 function get_sets() 
     --send_command('input //gs showswaps')
 
+    shuriken = "Happo Shuriken"
+
     --[[
     sets.template = {
         --main="",
@@ -26,7 +28,7 @@ function get_sets()
     --]]
 
     sets.idle = {
-        ammo="Demonry Stone",
+        ammo=shuriken,
         head="Lithelimb Cap",
         body="Mekosu. Harness",
         hands="Onimusha-no-kote",
@@ -42,7 +44,7 @@ function get_sets()
     }
 
     sets.melee = {
-        ammo="Qirmiz Tathlum",
+        ammo=shuriken,
         head="Gavialis Helm",
         body="Mekosu. Harness",
         hands="Onimusha-no-kote",
@@ -58,7 +60,7 @@ function get_sets()
     }
 
     sets.dt = {
-        ammo="Demonry Stone",
+        ammo=shuriken,
         head="Lithelimb Cap",
         body="Mekosu. Harness",
         hands="Onimusha-no-kote",
@@ -73,10 +75,25 @@ function get_sets()
         back="Shadow Mantle",
     }
 
+    sets.refresh = {
+        head="Lithelimb Cap",
+        body="Mekosu. Harness",
+        hands="Onimusha-no-Kote",
+        legs={ name="Stearc Subligar", augments={'"Refresh"+1','MP recovered while healing +1',}},
+        feet="Diama. Sollerets",
+        neck="Twilight Torque",
+        waist="Glassblower's Belt",
+        left_ear="Ethereal Earring",
+        right_ear="Colossus's Earring",
+        left_ring={ name="Dark Ring", augments={'Enemy crit. hit rate -2','Spell interruption rate down -4%','Phys. dmg. taken -4%',}},
+        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
+        back="Shadow Mantle",
+    }
+
     sets.precast = {}
 
     sets.precast.fc = {
-        ammo="Impatiens",
+        ammo=shuriken,
         head="Gavialis Helm",
         body={ name="Mirke Wardecors", augments={'Evasion+10','"Fast Cast"+5',}},
         hands="Onimusha-no-kote",
@@ -96,7 +113,7 @@ function get_sets()
     })
 
     sets.ws = {
-        ammo="Qirmiz Tathlum",
+        ammo=shuriken,
         head="Gavialis Helm",
         body="Mekosu. Harness",
         hands="Onimusha-no-kote",
@@ -112,9 +129,7 @@ function get_sets()
     }
 
     sets.alien = {
-        main="Levante Dagger",
-        sub="Kaitsuburi",
-        ammo="Iron Gobbet",
+        ammo=shuriken,
         head="Gavialis Helm",
         body="Mekosu. Harness",
         hands="Onimusha-no-kote",
@@ -132,7 +147,7 @@ function get_sets()
     sets.midcast = {}
 
     sets.midcast.utsusemi = {
-        ammo="Impatiens",
+        ammo=shuriken,
         head="Gavialis Helm",
         body="Mekosu. Harness",
         hands={ name="Kog. Tekko +2", augments={'Enh. "Ninja Tool Expertise" effect',}},
@@ -148,7 +163,7 @@ function get_sets()
     }
 
     sets.midcast.ninjutsu = {
-        ammo="Impatiens",
+        ammo=shuriken,
         head="Gavialis Helm",
         body="Mekosu. Harness",
         hands={ name="Kog. Tekko +2", augments={'Enh. "Ninja Tool Expertise" effect',}},
@@ -163,6 +178,21 @@ function get_sets()
         back="Astute Cape",
     }
 
+    sets.midcast.enhancing = {
+        head="Lithelimb Cap",
+        body="Mekosu. Harness",
+        hands="Onimusha-no-Kote",
+        legs="Dashing Subligar",
+        feet="Diama. Sollerets",
+        neck="Colossus's Torque",
+        waist="Olympus Sash",
+        left_ear="Mimir Earring",
+        right_ear="Augment. Earring",
+        left_ring="Stikni Ring",
+        right_ring="Stikni Ring",
+        back="Merciful Cape",
+    }
+
 end
 
 
@@ -172,6 +202,10 @@ end
 
 function precast(spell)
     if spell.type == "Item" then return end
+
+    if outOfWeaponSkillRange(spell) then
+            cancel_spell() return
+    end
 
     if spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi' then
         equip(sets.precast.utsusemi)
@@ -212,6 +246,8 @@ function midcast(spell)
         equip(sets.midcast.utsusemi)
     elseif spell.skill == 'Ninjutsu Magic' then
         equip(sets.midcast.ninjutsu)
+    elseif spell.skill == 'Enhancing Magic' then
+        equip(sets.midcast.enhancing)
     end
 end
 

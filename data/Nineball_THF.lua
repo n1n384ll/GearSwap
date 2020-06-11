@@ -81,7 +81,7 @@ function get_sets()
         legs="Manibozho Brais",
         feet="Skulk. Poulaines +1",
         neck="Asperity Necklace",
-        waist="Wanion Belt",
+        waist="Chaac Belt",
         left_ear="Kuwunga Earring",
         right_ear="Ethereal Earring",
         left_ring="Apate Ring",
@@ -121,23 +121,7 @@ function get_sets()
         back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
     }
 
-    sets.alien_edge = {
-        ammo="Demonry Core",
-        head="Uk'uxkaj Cap",
-        body="Mekosu. Harness",
-        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
-        legs="Ighwa Trousers",
-        feet="Skulk. Poulaines +1",
-        neck="Breeze Gorget",
-        waist="Wanion Belt",
-        left_ear="Ishvara Earring",
-        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Acumen Ring",
-        right_ring="Thundersoul Ring",
-        back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
-    }
-
-    sets.shark_bite = {
+    sets.ws = {
         ammo="Demonry Core",
         head="Umbani Cap",
         body="Mekosu. Harness",
@@ -145,13 +129,79 @@ function get_sets()
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines +1",
         neck="Breeze Gorget",
-        waist="Windbuffet Belt",
+        waist="Chaac Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Apate Ring",
         right_ring="Rajas Ring",
         back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
     }
+
+    sets.ws["Savage Blade"] = {
+        ammo="Quartz Tathlum +1",
+        head="Uk'uxkaj Cap",
+        body="Mekosu. Harness",
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
+        legs="Meg. Chausses +1",
+        feet="Skulk. Poulaines +1",
+        neck="Breeze Gorget",
+        waist="Chaac Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Epona's Ring",
+        right_ring="Rufescent Ring",
+        back="Letalis Mantle",
+    }
+
+    sets.ws['Evisceration'] = {
+        ammo="Qirmiz Tathlum",
+        head="Meghanada Visor +1",
+        body="Mekosu. Harness",
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
+        legs="Manibozho Brais",
+        feet="Skulk. Poulaines +1",
+        neck="Soil Gorget",
+        waist="Chaac Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Epona's Ring",
+        right_ring="Apate Ring",
+        back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
+    }
+
+    sets.ws['Shark Bite'] = {
+        ammo="Qirmiz Tathlum",
+        head="Meghanada Visor +1",
+        body="Mekosu. Harness",
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
+        legs="Meg. Chausses +1",
+        feet="Skulk. Poulaines +1",
+        neck="Breeze Gorget",
+        waist="Chaac Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Epona's Ring",
+        right_ring="Apate Ring",
+        back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
+    }
+
+    sets.ws["Aeolian Edge"] = {
+        ammo="Demonry Core",
+        head="Uk'uxkaj Cap",
+        body="Mekosu. Harness",
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
+        legs="Ighwa Trousers",
+        feet="Skulk. Poulaines +1",
+        neck="Breeze Gorget",
+        waist="Chaac Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Acumen Ring",
+        right_ring="Thundersoul Ring",
+        back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
+    }
+
+
 
     sets.precast = {}
 
@@ -180,7 +230,7 @@ function get_sets()
         hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines +1",
-        neck="Weike Torque",
+        neck="Henic Torque",
         waist="Chaac Belt",
         left_ear="Lifestorm Earring",
         right_ear="Psystorm Earring",
@@ -196,12 +246,12 @@ function get_sets()
         hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines +1",
-        neck="Colossus's Torque",
+        neck="Melic Torque",
         waist="Olympus Sash",
-        left_ear="Infused Earring",
+        left_ear="Vor Earring",
         right_ear="Augment. Earring",
-        left_ring="Sheltered Ring",
-        right_ring="Prolix Ring",
+        left_ring="Stikini Ring",
+        right_ring="Stikini Ring",
         back="Shadow Mantle",
     }
 
@@ -230,6 +280,10 @@ end
 function precast(spell)
     if spell.type == "Item" then return end
 
+    if outOfWeaponSkillRange(spell) then
+            cancel_spell() return
+    end
+
     --print("precast spell.type is:")
     --print(spell.type)
 
@@ -242,13 +296,12 @@ function precast(spell)
     elseif string.match(spell.name, "Waltz") then
         equip(sets.midcast.waltz)
 
-    elseif spell.name == 'Aeolian Edge' then
-        equip(sets.alien_edge)
-
-    elseif spell.name == 'Shark Bite' or 
-        spell.type == 'WeaponSkill' then
-        equip(sets.shark_bite)
-
+    elseif spell.type == 'WeaponSkill' then
+        if sets.ws[spell.name] ~= nil then
+            equip(sets.ws[spell.name])
+        else
+            equip(sets.ws)
+        end
     else
     end
 
@@ -269,14 +322,11 @@ function midcast(spell)
         equip(sets.midcast.waltz)
 
     elseif spell.type == 'WeaponSkill' then
-        equip(sets.shark_bite)
-
-    elseif spell.name == 'Aeolian Edge' then
-        equip(sets.alien_edge)
-
-    elseif spell.name == 'Shark Bite' then
-        equip(sets.shark_bite)
-
+        if sets.ws[spell.name] ~= nil then
+            equip(sets.ws[spell.name])
+        else
+            equip(sets.ws)
+        end
     else
     end
 
@@ -305,6 +355,12 @@ end
 
 function status_change(new, old)
     --print('staus_change ' .. old .. ' -> ' .. new)
+    -- i = 0
+    -- while true do
+    --     windower.add_to_chat('loop' .. tostring(i))
+    --     i = i + 1
+    --     -- sleep(5)
+    -- end
 
     if player.status == 'Engaged' then
         if buffactive['Sneak Attack'] and
@@ -318,7 +374,7 @@ function status_change(new, old)
             equip(sets.trick_attack)
 
         else
-            equip(sets.melee)
+            idle_check()
         end
     else
         idle_check()
@@ -345,7 +401,7 @@ function buff_change(name, gain, buff_details)
             --print('sneak_attack set on')
             equip(sets.sneak_attack)
         else
-            equip(sets.melee)
+            idle_check()
         end
 
     elseif name == 'Trick Attack' then
@@ -353,7 +409,7 @@ function buff_change(name, gain, buff_details)
             --print('trick_attack set on')
             equip(sets.trick_attack)
         else
-            equip(sets.melee)
+            idle_check()
         end
 
     else 
