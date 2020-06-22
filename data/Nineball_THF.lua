@@ -32,7 +32,7 @@ function get_sets()
         hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
-        neck="Twilight Torque",
+        neck="Loricate Torque +1",
         waist="Chaac Belt",
         left_ear="Infused Earring",
         right_ear="Colossus's Earring",
@@ -57,6 +57,8 @@ function get_sets()
         back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
     }
 
+    sets.dw = sets.melee
+
     sets.dt = {
         ammo="Demonry Stone",
         head="Meghanada Visor +1",
@@ -64,7 +66,7 @@ function get_sets()
         hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Meg. Chausses +1",
         feet="Skulk. Poulaines +1",
-        neck="Twilight Torque",
+        neck="Loricate Torque +1",
         waist="Chaac Belt",
         left_ear="Infused Earring",
         right_ear="Colossus's Earring",
@@ -82,8 +84,8 @@ function get_sets()
         feet="Skulk. Poulaines +1",
         neck="Asperity Necklace",
         waist="Chaac Belt",
-        left_ear="Kuwunga Earring",
-        right_ear="Ethereal Earring",
+        left_ear="Dominiance Earring",
+        right_ear="Domin. Earring +1",
         left_ring="Apate Ring",
         right_ring="Rajas Ring",
         back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
@@ -185,6 +187,22 @@ function get_sets()
         back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
     }
 
+    sets.ws['Rudra\'s Storm'] = {
+        ammo="Qirmiz Tathlum",
+        head="Meghanada Visor +1",
+        body="Mekosu. Harness",
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
+        legs="Meg. Chausses +1",
+        feet="Skulk. Poulaines +1",
+        neck="Snow Gorget",
+        waist="Chaac Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Epona's Ring",
+        right_ring="Apate Ring",
+        back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
+    }
+
     sets.ws["Aeolian Edge"] = {
         ammo="Demonry Core",
         head="Uk'uxkaj Cap",
@@ -262,7 +280,7 @@ function get_sets()
         hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
         legs="Dashing Subligar",
         feet="Skulk. Poulaines +1",
-        neck="Twilight Torque",
+        neck="Loricate Torque +1",
         waist="Chaac Belt",
         left_ear="Infused Earring",
         right_ear="Colossus's Earring",
@@ -302,6 +320,8 @@ function precast(spell)
         else
             equip(sets.ws)
         end
+    elseif spell.name == 'Flee' then
+        equip({feet="Pillager's Poulaines"})
     else
     end
 
@@ -327,6 +347,8 @@ function midcast(spell)
         else
             equip(sets.ws)
         end
+    elseif spell.name == 'Flee' then
+        equip({feet="Pillager's Poulaines"})
     else
     end
 
@@ -349,7 +371,7 @@ function aftercast(spell)
             equip(sets.melee)
         end
     else
-        idle_check()
+        idleCheck()
     end
 end
 
@@ -374,10 +396,10 @@ function status_change(new, old)
             equip(sets.trick_attack)
 
         else
-            idle_check()
+            idleCheck()
         end
     else
-        idle_check()
+        idleCheck()
     end
 
 end
@@ -401,7 +423,7 @@ function buff_change(name, gain, buff_details)
             --print('sneak_attack set on')
             equip(sets.sneak_attack)
         else
-            idle_check()
+            idleCheck()
         end
 
     elseif name == 'Trick Attack' then
@@ -409,7 +431,7 @@ function buff_change(name, gain, buff_details)
             --print('trick_attack set on')
             equip(sets.trick_attack)
         else
-            idle_check()
+            idleCheck()
         end
 
     else 

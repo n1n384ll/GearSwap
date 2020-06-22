@@ -6,12 +6,12 @@ local inspect = require 'inspect'
 function get_sets() 
 
     sets.idle = {
-        head="Aya. Zucchetto",
+        head="Aya. Zucchetto +1",
         body="Ayanmo Corazza +1",
-        hands="Aya. Manopolas +1",
+        hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +1",
         feet="Aya. Gambieras +1",
-        neck="Twilight Torque",
+        neck="Loricate Torque +1",
         waist="Glassblower's Belt",
         left_ear="Infused Earring",
         right_ear="Colossus's Earring",
@@ -22,9 +22,9 @@ function get_sets()
 
     sets.melee = {
         ammo="Esper Stone",
-        head="Aya. Zucchetto",
+        head="Aya. Zucchetto +1",
         body="Ayanmo Corazza +1",
-        hands="Aya. Manopolas +1",
+        hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +1",
         feet="Aya. Gambieras +1",
         neck="Iqabi Necklace",
@@ -140,7 +140,7 @@ function get_sets()
         ammo="Esper Stone",
         head="Nahtirah Hat",
         body="Ayanmo Corazza +1",
-        hands="Aya. Manopolas +1",
+        hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +1",
         feet={ name="Gende. Galosh. +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song recast delay -3',}},
         neck="Melic Torque",
@@ -152,11 +152,14 @@ function get_sets()
         back="Merciful Cape",
     }
 
-    sets.savage = {
+    sets.ws = {}
+
+    -- STR50 MND50 mod
+    sets.ws['Savage Blade'] = {
         ammo="Quartz Tathlum +1",
         head="Lithelimb Cap",
         body="Ayanmo Corazza +1",
-        hands="Aya. Manopolas +1",
+        hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +1",
         feet="Aya. Gambieras +1",
         neck="Breeze Gorget",
@@ -216,9 +219,13 @@ function precast(spell)
     elseif spell.name == 'Utsusemi: Ni' or spell.name == 'Utsusemi: Ichi' then
         equip(sets.precast.fc)
 
-    --- Weaponskills ---
-    elseif spell.name == 'Savage Blade' then
-        equip(sets.savage)
+    --- Weaponskills Midcast (just to be sure) ---
+    elseif spell.type == 'WeaponSkill' then
+        if sets.ws[spell.name] ~= nil then
+            equip(sets.ws[spell.name])
+        else
+            equip(sets.ws)
+        end
 
     elseif spell.type == 'JobAbility' then 
         if spell.name == 'Troubadour' then
@@ -287,8 +294,12 @@ function midcast(spell)
         equip(sets.precast.fc)
 
     --- Weaponskills Midcast (just to be sure) ---
-    elseif spell.name == 'Savage Blade' then
-        equip(sets.savage)
+    elseif spell.type == 'WeaponSkill' then
+        if sets.ws[spell.name] ~= nil then
+            equip(sets.ws[spell.name])
+        else
+            equip(sets.ws)
+        end
 
     else 
         -- noop
@@ -298,11 +309,11 @@ end
 
 
 function aftercast(spell)
-    idle_check()
+    idleCheck()
 end
 
 function status_change(new, old)
-    idle_check()
+    idleCheck()
 end
 
 function buff_change(name, gain, buff_details)

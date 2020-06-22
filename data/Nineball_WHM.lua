@@ -433,11 +433,11 @@ function midcast(spell)
 end
 
 function aftercast(spell)
-    idle_check()
+    idleCheck()
 end
 
 function status_change(new, old)
-    idle_check()
+    idleCheck()
 end
 
 function buff_change(name, gain, buff_details)
