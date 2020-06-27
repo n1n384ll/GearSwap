@@ -135,7 +135,7 @@ function get_sets()
         hands="Onimusha-no-kote",
         legs="Dashing Subligar",
         feet="Diama. Sollerets",
-        neck="Breeze Gorget",
+        neck="Fotia Gorget",
         waist="Chaac Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},

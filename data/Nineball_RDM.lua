@@ -31,18 +31,19 @@ function get_sets()
 
     sets.idle = {
         ammo="Homiliary",
-        head="Viti. Chapeau +1",
-        neck="Loricate Torque +1",
-        left_ear="Infused earring",
-        right_ear="Colossus's earring",
+        head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
         body="Jhakri Robe +2",
         hands="Aya. Manopolas +2",
-        left_ring="Shneddick ring",
-        right_ring="Warp ring",
-        back="Shadow mantle",
-        waist="Fucho-no-obi",
         legs="Aya. Cosciales +1",
-        feet="Aya. Gambieras +1"
+        feet="Aya. Gambieras +1",
+        neck="Loricate Torque +1",
+        waist="Fucho-no-Obi",
+        left_ear="Infused Earring",
+        right_ear="Colossus's Earring",
+        -- left_ring="Sheltered Ring",
+        left_ring="Shneddick Ring",
+        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
+        back="Shadow Mantle",
     }
 
     sets.dt = {
@@ -185,7 +186,7 @@ function get_sets()
         -- legs="Viti. Tights +1",
         legs="Atrophy Tights +1",
         feet="Leth. Houseaux +1",
-        neck="Melic Torque",
+        neck="Incanter's Torque",
         waist="Olympus Sash",
         left_ear="Mimir Earring",
         right_ear="Augment. Earring",
@@ -294,7 +295,7 @@ function get_sets()
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +1",
         feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+9','Pet: DEX+11','"Treasure Hunter"+2','Accuracy+15 Attack+15',}},
-        neck="Deceiver's Torque",
+        neck="Incanter's Torque",
         waist="Chaac Belt",
         left_ear="Dark Earring",
         right_ear="Gifted Earring",
@@ -312,7 +313,7 @@ function get_sets()
         hands="Leth. Gantherots +1",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet="Jhakri Pigaches +2",
-        neck="Henic Torque",
+        neck="Incanter's Torque",
         waist="Rumination Sash",
         left_ear="Vor Earring",
         right_ear="Estq. Earring",
@@ -333,7 +334,7 @@ function get_sets()
         hands="Jhakri Cuffs +2",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet="Jhakri Pigaches +2",
-        neck="Henic Torque",
+        neck="Incanter's Torque",
         waist="Rumination Sash",
         left_ear="Vor Earring",
         right_ear="Estq. Earring",
@@ -351,7 +352,7 @@ function get_sets()
         hands="Leth. Gantherots +1",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet={ name="Vitiation Boots +1", augments={'Immunobreak Chance',}},
-        neck="Henic Torque",
+        neck="Incanter's Torque",
         waist="Rumination Sash",
         left_ear="Vor Earring",
         right_ear="Enfeebling Earring",
@@ -368,7 +369,7 @@ function get_sets()
         hands="Leth. Gantherots +1",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet={ name="Vitiation Boots +1", augments={'Immunobreak Chance',}},
-        neck="Henic Torque",
+        neck="Incanter's Torque",
         waist="Rumination Sash",
         left_ear="Vor Earring",
         right_ear="Enfeebling Earring",
@@ -387,7 +388,7 @@ function get_sets()
         hands="Leth. Gantherots +1",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet={ name="Vitiation Boots +1", augments={'Immunobreak Chance',}},
-        neck="Henic Torque",
+        neck="Incanter's Torque",
         waist="Rumination Sash",
         left_ear="Lifestorm Earring",
         right_ear="Psystorm Earring",
@@ -404,7 +405,7 @@ function get_sets()
         hands="Jhakri Cuffs +2",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet="Jhakri Pigaches +2",
-        neck="Henic Torque",
+        neck="Incanter's Torque",
         waist="Rumination Sash",
         left_ear="Lifestorm Earring",
         right_ear="Psystorm Earring",
@@ -455,7 +456,7 @@ function get_sets()
         hands="Jhakri Cuffs +2",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
-        neck="Breeze Gorget",
+        neck="Fotia Gorget",
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -488,7 +489,7 @@ function get_sets()
         hands="Jhakri Cuffs +2",
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
-        neck="Breeze Gorget",
+        neck="Fotia Gorget",
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
         right_ear="Brutal Earring",
@@ -505,7 +506,7 @@ function get_sets()
         hands="Aya. Manopolas +2",
         legs="Viti. Tights +1",
         feet="Aya. Gambieras +1",
-        neck="Light Gorget",
+        neck="Fotia Gorget",
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
         right_ear="Moonshade Earring",
@@ -523,7 +524,7 @@ function get_sets()
         legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
         neck="Asperity Necklace",
-        waist="Aqua Belt",
+        waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Rufescent Ring",
@@ -548,6 +549,22 @@ function get_sets()
         back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
     }
 
+    sets.ws['Red Lotus Blade'] = {
+        ammo="Witchstone",
+        head="Jhakri Coronal +1",
+        body="Jhakri Robe +2",
+        hands="Jhakri Cuffs +2",
+        legs="Jhakri Slops +1",
+        feet="Jhakri Pigaches +2",
+        neck="Eddy Necklace",
+        waist="Refoccilation Stone",
+        left_ear="Friomisi Earring",
+        right_ear="Novio Earring",
+        left_ring="Acumen Ring",
+        right_ring="Strendu Ring",
+        back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
+    }
+
     -- MND85 mod - MND Based Build - test balance with STR?
     sets.ws['Requiescat'] = {
         ammo="Quartz Tathlum +1",
@@ -556,8 +573,8 @@ function get_sets()
         hands="Jhakri Cuffs +2",
         legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
         feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+9','Pet: DEX+11','"Treasure Hunter"+2','Accuracy+15 Attack+15',}},
-        neck="Shadow Gorget",
-        waist="Shadow Belt",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Rufescent Ring",
@@ -573,7 +590,7 @@ function get_sets()
         legs="Leth. Fuseau +1",
         feet="Atrophy Boots +1",
         neck="Orunmila's Torque",
-        waist="Mujin Obi",
+        waist="Fucho-no-Obi",
         left_ear="Influx Earring",
         right_ear="Gifted Earring",
         left_ring="Sangoma Ring",
@@ -593,6 +610,8 @@ function precast(spell)
     if outOfWeaponSkillRange(spell) then
             cancel_spell() return
     end
+
+    -- windower.add_to_chat(spell.name)
 
     --- Curing FC ----
     if spell.name:sub(1,3) == "Cur" and spell.name ~= "Cursna" then
@@ -642,9 +661,11 @@ function precast(spell)
     --- General FC for magic ---
     elseif spell.type ~= 'WeaponSkill' then
         equip(sets.precast.fc)
+        windower.add_to_chat("Failover FC")
 
     else
         --noop
+        windower.add_to_chat("NEVER SHOULDA COME HERE")
     end
 end
 

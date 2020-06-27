@@ -31,7 +31,9 @@ enspells = {
 }
 
 function idleCheck()
-    if player.hpp < 69 then
+    if player.hpp < 10 and sets.ohshi ~= nil then
+        equip(sets.ohshi)
+    elseif player.hpp < 69 then
         equip(sets.dt)
         windower.add_to_chat("--------- DT ON ---------")
     elseif player.status =='Engaged' then
