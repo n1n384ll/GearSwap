@@ -5,33 +5,16 @@ function get_sets()
 
     --send_command('input //gs showswaps')
 
-    sets.oshi = { 
-        ammo="Demonry Stone",
-        head="Twilight Helm",
-        body="Twilight Mail",
-        hands="Chev. Gauntlets",
-        legs="Chevalier's Cuisses",
-        feet="Chev. Sabatons",
-        neck="Loricate Torque +1",
-        waist="Nierenschutz",
-        left_ear="Odnowa Earring",
-        right_ear="Odnowa Earring +1",
-        left_ring="Shadow Ring",
-        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
-        back="Shadow Mantle",
-    }
-
     sets.dt = {
         ammo="Demonry Stone",
         head="Sulevia's Mask +1",
-        --Rev Coat +1
-        body={ name="Cizin Mail +1", augments={'Phys. dmg. taken -2%','"Mag.Def.Bns."+1',}},
-        hands="Sulevia's Gauntlets +1",
+        body="Souv. Cuirass +1",
+        hands="Sulev. Gauntlets +1",
         --Chev Legs +1?
-        legs={ name="Cizin Breeches +1", augments={'Phys. dmg. taken -3%','Attack+10',}},
+        legs="Rev. Breeches +1",
         feet="Sulevia's Leggings +1",
         neck="Loricate Torque +1",
-        waist="Nierenschutz",
+        waist="Flume Belt",
         left_ear="Odnowa Earring",
         right_ear="Odnowa Earring +1",
         --dring
@@ -40,41 +23,87 @@ function get_sets()
         back="Rudianos's Mantle",
     }
 
-    sets.idle = set_combine(sets.dt, {left_ring="Shneddick Ring"})
-
-    sets.refresh = set_combine(sets.dt, {
-        ammo="Homiliary",
-        neck="Creed Collar"
-    })
-
     sets.hp = {
         ammo="Egoist's Tathlum",
-        head="Chevalier's Armet",
-        body="Chev. Cuirass",
-        hands="Flam. Manopolas +1",
-        legs="Chevalier's Cuisses",
-        feet="Flam. Gambieras +1",
+        head="Souv. Schaller +1",
+        body="Souv. Cuirass +1",
+        hands="Souv. Handsch. +1",
+        legs="Souv. Diechlings +1",
+        feet="Souveran Schuhs +1",
         neck="Ritter Gorget",
         waist="Creed Baudrier",
         left_ear="Odnowa Earring",
         right_ear="Odnowa Earring +1",
         left_ring="K'ayres Ring",
         right_ring="Meridian Ring",
-        back={ name="Weard Mantle", augments={'VIT+4','DEX+2',}},
+        back="Rudianos's Mantle"
     }
 
+    -- 44 pdt
+    -- 38 mdt
+    -- 37 bdt
+    sets.turtle = {
+        ammo="Egoist's Tathlum",
+        head={ name="Souv. Schaller +1", augments={'HP+105','VIT+12','Phys. dmg. taken -4',}},
+        body="Souv. Cuirass +1",
+        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        neck="Loricate Torque +1",
+        waist="Flume Belt",
+        left_ear="Odnowa Earring",
+        right_ear="Odnowa Earring +1",
+        left_ring="Sulevia's Ring",
+        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
+        back="Impassive Mantle",
+    }
+
+    sets.idle = set_combine(sets.hp, {left_ring="Shneddick Ring"})
+
+    sets.refresh = set_combine(sets.dt, {
+        ammo="Homiliary",
+        neck="Creed Collar"
+    })
+
+    sets.ohshi = set_combine(sets.dt, { 
+        head="Twilight Helm",
+        body="Twilight Mail",
+        left_ring="Shadow Ring",
+        back="Shadow Mantle",
+        hands="Chev. Gauntlets",
+        --TODO : get the upgrade
+        --legs="Chev. Breeches +1?",
+        feet="Chev. Sabatons"
+    })
+
     sets.melee = {
-        ammo="Paeapua",
-        head="Yaoyotl Helm",
-        body="Vatic Byrnie",
+        ammo="Amar Cluster",
+        head="Flam. Zucchetto +1",
+        body="Flamma Korazin +1",
         hands="Flam. Manopolas +1",
-        legs={ name="Cizin Breeches +1", augments={'Phys. dmg. taken -3%','Attack+10',}},
+        legs="Flamma Dirs +1",
         feet="Flam. Gambieras +1",
-        neck="Iqabi Necklace",
-        waist="Sailfi Belt",
-        left_ear="Brutal Earring",
-        right_ear="Hollow Earring",
+        neck="Sanctity Necklace",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Cessance Earring",
+        right_ear="Brutal Earring",
         left_ring="Flamma Ring",
+        right_ring="Rajas Ring",
+        back="Letalis Mantle",
+    }
+
+    sets.hybrid = {
+        ammo="Amar Cluster",
+        head="Sulevia's Mask +1",
+        body="Sulevia's Plate. +1",
+        hands="Sulev. Gauntlets +1",
+        legs="Sulevi. Cuisses +1",
+        feet="Sulev. Leggings +1",
+        neck="Sanctity Necklace",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Cessance Earring",
+        right_ear="Brutal Earring",
+        left_ring="Sulevia's Ring",
         right_ring="Rajas Ring",
         back="Letalis Mantle",
     }
@@ -85,18 +114,18 @@ function get_sets()
 
     sets.enmity = {
         ammo="Iron Gobbet",
-        head="Valor Coronet",
-        body="Chevalier's Cuirass",
-        hands={ name="Cizin Mufflers +1", augments={'Phys. dmg. taken -3%','Attack+7',}},
-        legs="Chevalier's Cuisses",
-        feet="Chev. Sabatons",
+        head="Cab. Coronet",
+        body="Souv. Cuirass +1",
+        hands="Souv. Handsch. +1",
+        legs="Cab. Breeches",
+        feet="Souveran Schuhs +1",
         neck="Ritter Gorget",
         waist="Creed Baudrier",
         left_ear="Odnowa Earring",
         right_ear="Odnowa Earring +1",
         left_ring="Odium Ring",
         right_ring="Supershear Ring",
-        back="Impassive Mantle",
+        back="Rudianos's Mantle"
     }
 
 --------- Pre Casts ---------
@@ -106,12 +135,12 @@ function get_sets()
     sets.precast.fc = {
         ammo="Impatiens",
         head="Chevalier's Armet",
-        body={ name="Cizin Mail +1", augments={'Phys. dmg. taken -2%','"Mag.Def.Bns."+1',}},
-        hands="Flam. Manopolas +1",
+        body="Rev. Surcoat +1",
+        hands="Leyline Gloves",
         legs="Enif Cosciales",
-        feet="Flam. Gambieras +1",
+        feet="Rev. Leggings +1",
         neck="Orunmila's Torque",
-        waist="Nierenschutz",
+        waist="Flume Belt",
         left_ear="Loquac. Earring",
         right_ear="Odnowa Earring +1",
         left_ring="Prolix Ring",
@@ -129,13 +158,13 @@ function get_sets()
 
     sets.midcast.cure_potency = {
         ammo="Iron Gobbet",
-        head="Valor Coronet",
-        body="Vatic Byrnie",
+        head="Lithelimb Cap",
+        body="Souv. Cuirass +1",
         hands="Flam. Manopolas +1",
-        legs={ name="Cizin Breeches +1", augments={'Phys. dmg. taken -3%','Attack+10',}},
-        feet="Diama. Sollerets",
+        legs="Flamma Dirs +1",
+        feet="Sulev. Leggings +1",
         neck="Phalaina Locket",
-        waist="Rumination Sash",
+        waist="Asklepian Belt",
         left_ear="Odnowa Earring",
         right_ear="Odnowa Earring +1",
         left_ring="Asklepian Ring",
@@ -148,8 +177,24 @@ function get_sets()
         head="Chevalier's Armet",
         body="Chev. Cuirass",
         hands="Chev. Gauntlets",
-        legs="Gallant Breeches",
+        legs="Rev. Breeches +1",
         feet="Chev. Sabatons",
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        left_ear="Mimir Earring",
+        right_ear="Augment. Earring",
+        left_ring="Stikini Ring",
+        right_ring="Stikini Ring",
+        back="Merciful Cape",
+    }
+
+    sets.midcast.phalanx = {
+        ammo="Iron Gobbet",
+        head={ name="Yorium Barbuta", augments={'Phalanx +2',}},
+        body="Chev. Cuirass",
+        hands="Souv. Handsch. +1",
+        legs={ name="Yorium Cuisses", augments={'Phalanx +2',}},
+        feet="Souveran Schuhs +1",
         neck="Incanter's Torque",
         waist="Olympus Sash",
         left_ear="Mimir Earring",
@@ -161,13 +206,13 @@ function get_sets()
 
     sets.midcast.divine = {
         ammo="Demonry Stone",
-        head="Chevalier's Armet",
-        body="Reverence Surcoat",
-        hands="Flam. Manopolas +1",
-        legs="Dashing Subligar",
+        head={ name="Jumalik Helm", augments={'MND+5','"Mag.Atk.Bns."+6','Magic burst dmg.+3%',}},
+        body={ name="Found. Breastplate", augments={'Accuracy+2','Mag. Acc.+3','"Mag.Atk.Bns."+3',}},
+        hands="Leyline Gloves",
+        legs="Flamma Dirs +1",
         feet="Chev. Sabatons",
         neck="Incanter's Torque",
-        waist="Nierenschutz",
+        waist="Asklepian Belt",
         left_ear="Odnowa Earring",
         right_ear="Odnowa Earring +1",
         left_ring="Stikini Ring",
@@ -175,31 +220,34 @@ function get_sets()
         back="Impassive Mantle",
     }
 
-    sets.midcast.flash = {
-        ammo="Iron Gobbet",
-        head="Gavialis Helm",
-        body="Chev. Cuirass",
-        hands={ name="Cizin Mufflers +1", augments={'Phys. dmg. taken -3%','Attack+7',}},
-        legs="Enif Cosciales",
-        feet="Chev. Sabatons",
-        neck="Orunmila's Torque",
-        waist="Sailfi Belt",
-        left_ear="Loquac. Earring",
-        right_ear="Colossus's Earring",
-        left_ring="Odium Ring",
-        right_ring="Supershear Ring",
+    sets.midcast.holy = {
+        ammo="Quartz Tathlum +1",
+        head={ name="Jumalik Helm", augments={'MND+5','"Mag.Atk.Bns."+6','Magic burst dmg.+3%',}},
+        body={ name="Found. Breastplate", augments={'Accuracy+2','Mag. Acc.+3','"Mag.Atk.Bns."+3',}},
+        hands={ name="Leyline Gloves", augments={'Accuracy+14','Mag. Acc.+13','"Mag.Atk.Bns."+13','"Fast Cast"+2',}},
+        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        feet="Sulev. Leggings +1",
+        neck="Sanctity Necklace",
+        waist="Asklepian Belt",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
+        left_ring="Stikini Ring",
+        right_ring="Stikini Ring",
         back="Impassive Mantle",
     }
+
+    -- TODO : Cap magic haste/enmity balance?
+    sets.midcast.flash = sets.enmity
 
     sets.midcast.utsusemi = {
         ammo="Impatiens",
         head="Atro. Chapeau +1",
         body={ name="Viti. Tabard +1", augments={'Enhances "Chainspell" effect',}},
         hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
-        legs="Aya. Cosciales +1",
+        legs="Aya. Cosciales +2",
         feet={ name="Merlinic Crackows", augments={'Accuracy+20','"Fast Cast"+1','Accuracy+6 Attack+6',}},
         neck="Orunmila's Torque",
-        waist="Sailfi Belt",
+        waist="Sailfi Belt +1",
         left_ear="Estq. Earring",
         right_ear="Loquac. Earring",
         left_ring="Veneficium Ring",
@@ -211,15 +259,15 @@ function get_sets()
 --- WS and JA stuffs ---
     sets.ws = {
         ammo="Paeapua",
-        head="Yaoyotl Helm",
-        body="Vatic Byrnie",
-        hands="Chev. Gauntlets",
-        legs={ name="Cizin Breeches +1", augments={'Phys. dmg. taken -3%','Attack+10',}},
-        feet="Flam. Gambieras +1",
-        neck="Asperity Necklace",
-        waist="Windbuffet Belt",
+        head="Sulevia's Mask +1",
+        body="Sulevia's Plate. +1",
+        hands="Sulev. Gauntlets +1",
+        legs="Sulevi. Cuisses +1",
+        feet="Sulev. Leggings +1",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
         left_ear="Ishvara Earring",
-        right_ear="Moonshade Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Rufescent Ring",
         right_ring="Rajas Ring",
         back="Letalis Mantle",
@@ -245,13 +293,11 @@ function get_sets()
     -- swift blade?
     -- STR50 MND50 mod
     sets.ws['Swift Blade'] = set_combine(sets.ws, {
-        neck="Fotia Gorget",
         right_ring="Apate Ring",
     })
 
     -- STR50 MND50 mod
     sets.ws['Savage Blade'] = set_combine(sets.ws, {
-        neck="Fotia Gorget",
         right_ring="Apate Ring",
     })
 
@@ -272,34 +318,50 @@ function get_sets()
     -- DEX80 mod
     sets.ws['Chant du Cygne'] = {
         ammo="Paeapua",
-        head="Gavialis Helm",
-        body="Vatic Byrnie",
-        hands="Chev. Gauntlets",
-        legs={ name="Cizin Breeches +1", augments={'Phys. dmg. taken -3%','Attack+10',}},
+        head="Valorous Mask",
+        body="Sulevia's Plate. +1",
+        hands="Flam. Manopolas +1",
+        legs="Sulevi. Cuisses +1",
         feet="Flam. Gambieras +1",
         neck="Fotia Gorget",
-        waist="Windbuffet Belt",
-        left_ear="Dominance Earring",
-        right_ear="Domin. Earring +1",
-        left_ring="Apate Ring",
-        right_ring="Thundersoul Ring",
+        waist="Fotia Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Thundersoul Ring",
+        right_ring="Apate Ring",
         back="Letalis Mantle",
     }
 
     -- MND85 mod - MND Based Build - test balance with STR? attack?
     sets.ws['Requiescat'] = {
         ammo="Paeapua",
-        head="Yaoyotl Helm",
-        body="Vatic Byrnie",
-        hands="Chev. Gauntlets",
-        legs={ name="Cizin Breeches +1", augments={'Phys. dmg. taken -3%','Attack+10',}},
-        feet="Diama. Sollerets",
+        head="Sulevia's Mask +1",
+        body="Sulevia's Plate. +1",
+        hands="Sulev. Gauntlets +1",
+        legs="Sulevi. Cuisses +1",
+        feet="Sulev. Leggings +1",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Rufescent Ring",
         right_ring="Stikini Ring",
+        back="Letalis Mantle",
+    }
+
+    sets.ws['Aeolian Edge'] = {
+        ammo="Ombre Tathlum",
+        head={ name="Jumalik Helm", augments={'MND+5','"Mag.Atk.Bns."+6','Magic burst dmg.+3%',}},
+        body={ name="Found. Breastplate", augments={'Accuracy+2','Mag. Acc.+3','"Mag.Atk.Bns."+3',}},
+        hands={ name="Leyline Gloves", augments={'Accuracy+14','Mag. Acc.+13','"Mag.Atk.Bns."+13','"Fast Cast"+2',}},
+        legs="Chev. Cuisses +1",
+        feet="Sulev. Leggings +1",
+        neck="Eddy Necklace",
+        waist="Wanion Belt",
+        left_ear="Friomisi Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Acumen Ring",
+        right_ring="Shiva Ring",
         back="Letalis Mantle",
     }
 
@@ -340,20 +402,20 @@ function precast(spell)
     elseif spell.type == 'JobAbility' then 
         equip(sets.enmity)
         if spell.name == 'Invincible' then
-            equip({legs="Vlr. Breeches +2"})
+            equip({legs="Cab. Breeches"})
         elseif spell.name == 'Holy Circle' then
-            equip({feet="Rev. Leggings"})
+            equip({feet="Rev. Leggings +1"})
         elseif spell.name == 'Shield Bash' then
-            equip({hands="Valor Gauntlets"})
+            equip({hands="Cab. Gauntlets"})
         elseif spell.name == 'Sentinel' then
             equip({feet="Cab. Leggings"})
         elseif spell.name == 'Cover' then
             -- make a cover set?
-            equip({head="Gallant Coronet", body="Vlr. Surcoat +2"})
+            equip({head="Rev. Coronet +1", body="Cab. Surcoat"})
         elseif spell.name == 'Rampart' then
-            equip({head="Valor Coronet"})
+            equip({head="Cab. Coronet"})
         elseif spell.name == 'Fealty' then
-            equip({body="Vlr. Surcoat +2"})
+            equip({body="Cab. Surcoat"})
         elseif spell.name == 'Divine Emblem' then
             equip({feet="Chev. Sabatons"})
         else
@@ -384,6 +446,8 @@ function midcast(spell)
     elseif spell.skill == 'Enhancing Magic' then
         if spell.name == 'Reprisal' then
             equip(sets.hp)
+        elseif spell.name == 'Phalanx' then
+            equip(sets.midcast.phalanx)
         else
             equip(sets.midcast.enhancing)
         end
@@ -394,6 +458,8 @@ function midcast(spell)
             spell.name:sub(1,5) == "Banish" then
             -- TODO : Enmity+ and build for recast
             equip(sets.midcast.flash)
+        elseif string.match(spell.name, "Holy") then
+            equip(sets.midcast.holy)
         else
             equip(sets.midcast.divine)
         end
@@ -416,6 +482,7 @@ function midcast(spell)
     else 
         -- noop
         -- windower.add_to_chat("NEVER SHOULDA COME HERE2")
+        equip(sets.enmity)
     end
 
 end

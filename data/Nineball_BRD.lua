@@ -9,39 +9,67 @@ function get_sets()
         head="Aya. Zucchetto +1",
         body="Ayanmo Corazza +1",
         hands="Aya. Manopolas +2",
-        legs="Aya. Cosciales +1",
+        legs="Aya. Cosciales +2",
         feet="Aya. Gambieras +1",
         neck="Loricate Torque +1",
-        waist="Glassblower's Belt",
+        waist="Flume Belt",
         left_ear="Infused Earring",
         right_ear="Colossus's Earring",
         left_ring="Shneddick Ring",
-        right_ring="Warp Ring",
+        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
         back="Shadow Mantle",
     }
 
     sets.melee = {
-        ammo="Esper Stone",
+        ammo="Amar Cluster",
         head="Aya. Zucchetto +1",
         body="Ayanmo Corazza +1",
         hands="Aya. Manopolas +2",
-        legs="Aya. Cosciales +1",
+        legs="Aya. Cosciales +2",
         feet="Aya. Gambieras +1",
         neck="Bard's Charm",
         waist="Windbuffet Belt",
-        left_ear="Steelflash Earring",
-        right_ear="Bladeborn Earring",
+        left_ear="Cessance Earring",
+        right_ear="Brutal Earring",
         left_ring="Ayanmo Ring",
         right_ring="Enlivened Ring",
         back="Letalis Mantle",
     }
 
+    -- More STP
+    -- sets.melee = {
+    --     ammo="Amar Cluster",
+    --     head="Aya. Zucchetto +1",
+    --     body="Ayanmo Corazza +1",
+    --     hands="Aya. Manopolas +2",
+    --     legs="Aya. Cosciales +2",
+    --     feet="Aya. Gambieras +1",
+    --     neck="Asperity Necklace",
+    --     waist="Windbuffet Belt",
+    --     left_ear="Cessance Earring",
+    --     right_ear="Brutal Earring",
+    --     left_ring="K'ayres Ring",
+    --     right_ring="Rajas Ring",
+    --     back="Letalis Mantle",
+    -- }
+
     sets.dw = set_combine(sets.melee, {
-        left_ear="Dudgeon earring",
-        right_ear="Heartseeker earring"
+        right_ear="Suppanomimi"
     })
 
     sets.dt = {
+        head="Aya. Zucchetto +1",
+        body="Ayanmo Corazza +1",
+        hands="Aya. Manopolas +2",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +1",
+        neck="Loricate Torque +1",
+        waist="Flume Belt",
+        left_ear="Odnowa Earring",
+        right_ear="Odnowa Earring +1",
+        left_ring="Ayanmo Ring",
+        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
+        back="Shadow Mantle",
     }
 
     sets.precast = {}
@@ -49,9 +77,9 @@ function get_sets()
     sets.precast.fc = {
         ammo="Impatiens",
         head="Nahtirah Hat",
-        body="Ayanmo Corazza +1",
+        body="Inyanga Jubbah",
         hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
-        legs="Aya. Cosciales +1",
+        legs="Aya. Cosciales +2",
         feet="Aya. Gambieras +1",
         neck="Orunmila's Torque",
         waist="Witful Belt",
@@ -65,11 +93,11 @@ function get_sets()
     sets.precast.fc_song = {
         range="Gjallarhorn",
         head="Fili Calot",
-        body="Sha'ir Manteel",
+        body="Inyanga Jubbah",
         hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
         legs={ name="Gendewitha Spats", augments={'Phys. dmg. taken -4%','Song spellcasting time -5%',}},
-        feet={ name="Bihu Slippers +1", augments={'Enhances "Nightingale" effect',}},
-        neck="Aoidos' Matinee",
+        feet={ name="Telchine Pigaches", augments={'"Fast Cast"+5','Enh. Mag. eff. dur. +9',}},
+        neck="Orunmila's Torque",
         waist="Witful Belt",
         left_ear="Aoidos' Earring",
         right_ear="Loquac. Earring",
@@ -92,11 +120,12 @@ function get_sets()
         range="Gjallarhorn",
         head="Fili Calot",
         body="Fili Hongreline",
-        hands="Fili Manchettes",
-        legs="Fili Rhingrave",
+        hands="Inyan. Dastanas +1",
+        legs="Inyanga Shalwar",
         feet="Brioso Slippers +1",
         neck="Moonbow Whistle",
         waist="Harfner's Sash",
+        -- TODO : DI Earring
         left_ear="Singing Earring",
         right_ear="Wind Earring",
         left_ring="Stikini Ring",
@@ -109,7 +138,7 @@ function get_sets()
         head="Brioso Roundlet +1",
         body="Brioso Just. +1",
         hands="Inyan. Dastanas +1",
-        legs={ name="Bihu Cannions +1", augments={'Enhances "Soul Voice" effect',}},
+        legs="Aya. Cosciales +2",
         feet="Aya. Gambieras +1",
         neck="Moonbow Whistle",
         waist="Ovate Rope",
@@ -139,31 +168,45 @@ function get_sets()
     sets.midcast.enhancing = {
         ammo="Esper Stone",
         head="Nahtirah Hat",
-        body="Ayanmo Corazza +1",
+        body="Telchine. Chas.",
         hands="Aya. Manopolas +2",
-        legs="Aya. Cosciales +1",
+        legs="Aya. Cosciales +2",
         feet={ name="Gende. Galosh. +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song recast delay -3',}},
         neck="Incanter's Torque",
         waist="Olympus Sash",
         left_ear="Augment. Earring",
-        right_ear="Gifted Earring",
+        right_ear="Vor Earring",
         left_ring="Stikini Ring",
         right_ring="Stikini Ring",
         back="Merciful Cape",
     }
 
-    sets.ws = {}
+    sets.ws = {
+        ammo="Quartz Tathlum +1",
+        head="Aya. Zucchetto +1",
+        body="Ayanmo Corazza +1",
+        hands="Aya. Manopolas +2",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +1",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        left_ring="Rufescent Ring",
+        right_ring="Apate Ring",
+        back="Letalis Mantle",
+    }
 
     -- STR50 MND50 mod
     sets.ws['Savage Blade'] = {
         ammo="Quartz Tathlum +1",
-        head="Lithelimb Cap",
+        head="Aya. Zucchetto +1",
         body="Ayanmo Corazza +1",
         hands="Aya. Manopolas +2",
-        legs="Aya. Cosciales +1",
+        legs="Aya. Cosciales +2",
         feet="Aya. Gambieras +1",
         neck="Fotia Gorget",
-        waist="Windbuffet Belt",
+        waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Rufescent Ring",
@@ -257,6 +300,8 @@ function midcast(spell)
             if string.match(spell.name, "Paeon") then
                 windower.add_to_chat("Casting Paeon")
                 equip(set_combine(sets.midcast.song_buff, {head="Brioso Roundlet +1"}))
+            elseif string.match(spell.name, "Ballad") then
+                equip(set_combine(sets.midcast.song_buff, {legs="Fili Rhingrave"}))
             elseif string.match(spell.name, "Scherzo") then
                 windower.add_to_chat("Casting Scherzo")
                 equip(set_combine(sets.midcast.song_buff, {feet="Fili Cothurnes"}))

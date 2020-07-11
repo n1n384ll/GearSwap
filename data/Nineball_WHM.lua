@@ -157,7 +157,7 @@ function get_sets()
         back="Estoqueur's Cape",
     }
 
-    sets.midcast.buff_other_duration = {
+    sets.midcast.enh_dur_other = {
         ammo="Esper Stone",
         head="Lethargy Chappel",
         body="Lethargy Sayon",
@@ -165,7 +165,7 @@ function get_sets()
         legs="Leth. Fuseau",
         feet="Leth. Houseaux +1",
         neck="Orunmila's Torque",
-        waist="Sailfi Belt",
+        waist="Sailfi Belt +1",
         left_ear="Estq. Earring",
         right_ear="Loquac. Earring",
         left_ring="Sheltered Ring",
@@ -228,7 +228,7 @@ function get_sets()
         legs="Aya. Cosciales +1",
         feet={ name="Merlinic Crackows", augments={'Accuracy+20','"Fast Cast"+1','Accuracy+6 Attack+6',}},
         neck="Orunmila's Torque",
-        waist="Sailfi Belt",
+        waist="Sailfi Belt +1",
         left_ear="Estq. Earring",
         right_ear="Loquac. Earring",
         left_ring="Veneficium Ring",
@@ -389,7 +389,7 @@ function midcast(spell)
             if spell.name == "Phalanx II" then
                 equip(sets.midcast.enhancing)
             else
-                equip(sets.midcast.buff_other_duration)
+                equip(sets.midcast.enh_dur_other)
             end
         end
 

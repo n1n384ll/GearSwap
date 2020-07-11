@@ -30,35 +30,78 @@ enspells = {
     'Enwater II'
 }
 
+ring_block = S{
+    'Dim. Ring (Dem)',
+    'Dim. Ring (Holla)',
+    'Dim. Ring (Mea)',
+    'Trizek Ring',
+    'Capacity Ring',
+    'Emperor Band',
+    'Echad Ring',
+    'Undecennial Ring',
+    'Warp Ring'
+}
+
 function idleCheck()
+    idleCheck(nil)
+end
+
+function idleCheck(playa)
+    local set_to_equip = {}
+    local has_ring_block = false
+
+    if (ring_block:contains(player.equipment.right_ring)) then
+        windower.add_to_chat("ring block on")
+        has_ring_block = true
+    end
+
+    -- windower.add_to_chat("idleCheck()")
     if player.hpp < 10 and sets.ohshi ~= nil then
-        equip(sets.ohshi)
+        set_to_equip = sets.ohshi
+        -- equip(sets.ohshi)
+        -- windower.add_to_chat("idleCheck() ohshi")
     elseif player.hpp < 69 then
-        equip(sets.dt)
+        set_to_equip = sets.dt
+        -- equip(sets.dt)
         windower.add_to_chat("--------- DT ON ---------")
     elseif player.status =='Engaged' then
         if canDualWield() and not isEnspellActive() then
-            equip(sets.dw)
+            set_to_equip = sets.dw
+            -- equip(sets.dw)
             -- windower.add_to_chat("canDualWield and !isEnspellActive")
         elseif canDualWield() and isEnspellActive() then
-            equip(sets.dw_enspell)
+            set_to_equip = sets.dw_enspell
+            -- equip(sets.dw_enspell)
             -- windower.add_to_chat("canDualWield and isEnspellActive")
-        elseif not canDualWield and not isEnspellActive() then
-            equip(sets.melee)
+        elseif not canDualWield() and not isEnspellActive() then
+            set_to_equip = sets.melee
+            -- equip(sets.melee)
             -- windower.add_to_chat("!canDualWield and !isEnspellActive")
         elseif not canDualWield() and isEnspellActive() then
-            equip(sets.melee_enspell)
+            set_to_equip = sets.melee_enspell
+            -- equip(sets.melee_enspell)
             -- windower.add_to_chat("!canDualWield and isEnspellActive")
+        else
+            windower.add_to_chat("NEVER SHOULDA COME HERE in idleCheck")
         end
     else
-        equip(sets.idle)
+        set_to_equip = sets.idle
+        -- equip(sets.idle)
+        -- windower.add_to_chat("idleCheck() else idle")
     end
 
     if player.mpp < 9 and isMpUsingJob() then
-        equip(sets.refresh) -- Make sure it only equips refresh gear to "layer" it over w/e should be idle
+        set_to_equip = set_combine(set_to_equip, sets.refresh) -- Make sure it only equips refresh gear to "layer" it over w/e should be idle
         windower.add_to_chat("--------- REFRESH ON ---------")
     end
+
+    if has_ring_block then
+        equip(set_to_equip, {right_ring=player.equipment.right_ring})
+    else
+        equip(set_to_equip)
+    end
 end
+
 
 function canDualWield()
     if sets.dw == nil then
@@ -113,4 +156,15 @@ function isEnspellActive()
         end
     end
     return false
+end
+
+function self_command(c)
+    if sets.turtle ~= nil and c == "turtle" then
+        windower.add_to_chat("TURTLE ON")
+        equip(sets.turtle)
+        disable("ammo", "head", "body", "hands", "legs", "feet", "neck", "waist", "left_ear", "right_ear", "left_ring", "right_ring", "back")
+    elseif c == "unlock" then
+        windower.add_to_chat("UNLOCKED SLOTS")
+        enable("ammo", "head", "body", "hands", "legs", "feet", "neck", "waist", "left_ear", "right_ear", "left_ring", "right_ring", "back")
+    end
 end

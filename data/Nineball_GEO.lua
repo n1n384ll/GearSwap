@@ -3,15 +3,38 @@ include('custom_helpers')
 
 function get_sets() 
 
-    macc_int_cape = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10'}}
+    macc_int_cape = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}}
     mnd_macc_cape = { name="Sucellos's Cape", augments={'MND+30','Mag. Acc+20 /Mag. Dmg.+20',}}
+
+    --send_command('input //gs showswaps')
+
+    --[[
+    sets.template = {
+        --main="",
+        --sub="",
+        --range="",
+        ammo="",
+        head="",
+        neck="",
+        left_ear="",
+        right_ear="",
+        body="",
+        hands="",
+        left_ring="",
+        right_ring="",
+        back="",
+        waist="",
+        legs="",
+        feet=""
+    }
+    --]]
 
     sets.idle = {
         ammo="Homiliary",
         head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
         body="Jhakri Robe +2",
         hands="Aya. Manopolas +2",
-        legs="Aya. Cosciales +2",
+        legs="Aya. Cosciales +1",
         feet="Aya. Gambieras +1",
         neck="Loricate Torque +1",
         waist="Fucho-no-Obi",
@@ -28,10 +51,10 @@ function get_sets()
         head="Aya. Zucchetto +1",
         body="Ayanmo Corazza +1",
         hands="Aya. Manopolas +2",
-        legs="Aya. Cosciales +2",
+        legs="Aya. Cosciales +1",
         feet="Aya. Gambieras +1",
         neck="Loricate Torque +1",
-        waist="Flume Belt",
+        waist="Glassblower's Belt",
         left_ear="Infused Earring",
         right_ear="Colossus's Earring",
         left_ring="Shneddick Ring",
@@ -55,12 +78,12 @@ function get_sets()
         head="Aya. Zucchetto +1",
         body="Ayanmo Corazza +1",
         hands="Aya. Manopolas +2",
-        legs="Aya. Cosciales +2",
+        legs="Aya. Cosciales +1",
         feet="Aya. Gambieras +1",
         neck="Sanctity Necklace",
         waist="Windbuffet Belt",
-        left_ear="Sherida Earring",
-        right_ear="Cessance Earring",
+        left_ear="Steelflash Earring",
+        right_ear="Bladeborn Earring",
         left_ring="Ayanmo Ring",
         right_ring="Enlivened Ring",
         back="Letalis Mantle",
@@ -136,7 +159,7 @@ function get_sets()
         right_ring="Prolix ring",
         back="Ogapepo cape",
         waist="Witful belt",
-        legs="Aya. Cosciales +2",
+        legs="Aya. Cosciales +1",
         feet={ name="Merlinic Crackows", augments={'Accuracy+20','"Fast Cast"+1','Accuracy+6 Attack+6',}},
     }
 
@@ -160,8 +183,7 @@ function get_sets()
         body="Twilight Cloak"
     })
 
-
-    --------- Mid Casts ---------
+--------- Mid Casts ---------
 
     sets.midcast = {}
 
@@ -200,11 +222,10 @@ function get_sets()
 
     sets.midcast.enh_dur_self = {
         ammo="Hasty Pinion +1",
-        -- head="Atro. Chapeau +1",
-        head={ name="Telchine Cap", augments={'Enh. Mag. eff. dur. +8',}},
+        head="Atro. Chapeau +1",
         body={ name="Viti. Tabard +1", augments={'Enhances "Chainspell" effect',}},
         hands="Atrophy Gloves +1",
-        legs="Aya. Cosciales +2",
+        legs="Aya. Cosciales +1",
         feet="Leth. Houseaux +1",
         neck="Orunmila's Torque",
         waist="Embla Sash",
@@ -215,12 +236,6 @@ function get_sets()
         back=macc_int_cape
     }
 
-    sets.midcast.phalanx_self = set_combine(sets.midcast.enh_dur_self, {
-            head={ name="Taeon Chapeau", augments={'Phalanx +2',}},
-            hands={ name="Taeon Gloves", augments={'Phalanx +1',}},
-        }
-    )
-
     sets.stoneskin = set_combine(sets.midcast.enhancing, {
         neck="Stone Gorget",
         right_ear="Earthcry Earring",
@@ -230,7 +245,7 @@ function get_sets()
     })
 
     sets.aquaveil = set_combine(sets.midcast.enhancing, {
-        legs="Shedir Seraweels",
+        legs="Shedir Seraweels"  
     })
 
     sets.midcast.enh_dur_other = {
@@ -240,7 +255,7 @@ function get_sets()
         hands="Atrophy Gloves +1",
         legs="Leth. Fuseau +1",
         feet="Leth. Houseaux +1",
-        neck="Incanter's Torque",
+        neck="Orunmila's Torque",
         waist="Sailfi Belt +1",
         left_ear="Estq. Earring",
         right_ear="Loquac. Earring",
@@ -254,7 +269,7 @@ function get_sets()
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
-        legs="Jhakri Slops +2",
+        legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
         neck="Eddy Necklace",
         waist="Refoccilation Stone",
@@ -269,7 +284,7 @@ function get_sets()
         ammo="Witchstone",
         body="Twilight Cloak",
         hands="Jhakri Cuffs +2",
-        legs="Jhakri Slops +2",
+        legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
         neck="Eddy Necklace",
         waist="Othila Sash",
@@ -286,7 +301,7 @@ function get_sets()
         head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
         body="Lethargy Sayon +1",
         hands="Aya. Manopolas +2",
-        legs="Aya. Cosciales +2",
+        legs="Aya. Cosciales +1",
         feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+9','Pet: DEX+11','"Treasure Hunter"+2','Accuracy+15 Attack+15',}},
         neck="Loricate Torque +1",
         waist="Chaac Belt",
@@ -303,7 +318,7 @@ function get_sets()
         head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
         body="Jhakri Robe +2",
         hands="Aya. Manopolas +2",
-        legs="Aya. Cosciales +2",
+        legs="Aya. Cosciales +1",
         feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+9','Pet: DEX+11','"Treasure Hunter"+2','Accuracy+15 Attack+15',}},
         neck="Incanter's Torque",
         waist="Chaac Belt",
@@ -327,7 +342,7 @@ function get_sets()
         waist="Rumination Sash",
         left_ear="Vor Earring",
         right_ear="Estq. Earring",
-        left_ring="Evanescence Ring",
+        left_ring="Stikini Ring",
         right_ring="Stikini Ring",
         back=mnd_macc_cape
     }
@@ -347,7 +362,7 @@ function get_sets()
         neck="Incanter's Torque",
         waist="Rumination Sash",
         left_ear="Vor Earring",
-        right_ear="Snotra Earring",
+        right_ear="Estq. Earring",
         left_ring="Stikini Ring",
         right_ring="Stikini Ring",
         back=macc_int_cape
@@ -365,7 +380,7 @@ function get_sets()
         neck="Incanter's Torque",
         waist="Rumination Sash",
         left_ear="Vor Earring",
-        right_ear="Snotra Earring",
+        right_ear="Enfeebling Earring",
         left_ring="Stikini Ring",
         right_ring="Stikini Ring",
         back=mnd_macc_cape
@@ -382,7 +397,7 @@ function get_sets()
         neck="Incanter's Torque",
         waist="Rumination Sash",
         left_ear="Vor Earring",
-        right_ear="Snotra Earring",
+        right_ear="Enfeebling Earring",
         left_ring="Stikini Ring",
         right_ring="Stikini Ring",
         back=macc_int_cape
@@ -400,8 +415,8 @@ function get_sets()
         feet={ name="Vitiation Boots +1", augments={'Immunobreak Chance',}},
         neck="Incanter's Torque",
         waist="Rumination Sash",
-        left_ear="Influx Earring",
-        right_ear="Snotra Earring",
+        left_ear="Lifestorm Earring",
+        right_ear="Psystorm Earring",
         left_ring="Stikini Ring",
         right_ring="Stikini Ring",
         back=mnd_macc_cape
@@ -417,8 +432,8 @@ function get_sets()
         feet="Jhakri Pigaches +2",
         neck="Incanter's Torque",
         waist="Rumination Sash",
-        left_ear="Vor Earring",
-        right_ear="Snotra Earring",
+        left_ear="Lifestorm Earring",
+        right_ear="Psystorm Earring",
         left_ring="Stikini Ring",
         right_ring="Stikini Ring",
         back=macc_int_cape
@@ -429,7 +444,7 @@ function get_sets()
         head="Atro. Chapeau +1",
         body={ name="Viti. Tabard +1", augments={'Enhances "Chainspell" effect',}},
         hands={ name="Leyline Gloves", augments={'Accuracy+14','Mag. Acc.+13','"Mag.Atk.Bns."+13','"Fast Cast"+2',}},
-        legs="Aya. Cosciales +2",
+        legs="Aya. Cosciales +1",
         feet={ name="Merlinic Crackows", augments={'Accuracy+20','"Fast Cast"+1','Accuracy+6 Attack+6',}},
         neck="Orunmila's Torque",
         waist="Sailfi Belt +1",
@@ -440,13 +455,14 @@ function get_sets()
         back="Swith Cape",
     }
 
+
 --- WS and JA stuffs ---
     sets.ws = {
         ammo="Paeapua",
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
         hands="Aya. Manopolas +2",
-        legs="Jhakri Slops +2",
+        legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
         neck="Iqabi Necklace",
         waist="Windbuffet Belt",
@@ -463,7 +479,7 @@ function get_sets()
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
-        legs="Jhakri Slops +2",
+        legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
         neck="Fotia Gorget",
         waist="Windbuffet Belt",
@@ -496,7 +512,7 @@ function get_sets()
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
-        legs="Jhakri Slops +2",
+        legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
         neck="Fotia Gorget",
         waist="Windbuffet Belt",
@@ -530,7 +546,7 @@ function get_sets()
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
-        legs="Jhakri Slops +2",
+        legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
         neck="Asperity Necklace",
         waist="Fotia Belt",
@@ -547,7 +563,7 @@ function get_sets()
         head="Pixie Hairpin +1",
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
-        legs="Jhakri Slops +2",
+        legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
         neck="Eddy Necklace",
         waist="Refoccilation Stone",
@@ -555,7 +571,7 @@ function get_sets()
         right_ear="Novio Earring",
         left_ring="Acumen Ring",
         right_ring="Archon Ring",
-        back=macc_int_cape
+        back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
     }
 
     sets.ws['Red Lotus Blade'] = {
@@ -563,7 +579,7 @@ function get_sets()
         head="Jhakri Coronal +1",
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
-        legs="Jhakri Slops +2",
+        legs="Jhakri Slops +1",
         feet="Jhakri Pigaches +2",
         neck="Eddy Necklace",
         waist="Refoccilation Stone",
@@ -571,7 +587,7 @@ function get_sets()
         right_ear="Novio Earring",
         left_ring="Acumen Ring",
         right_ring="Strendu Ring",
-        back=macc_int_cape
+        back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
     }
 
     -- MND85 mod - MND Based Build - test balance with STR?
@@ -588,11 +604,10 @@ function get_sets()
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Rufescent Ring",
         right_ring="Stikini Ring",
-        back=mnd_macc_cape
+        back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20',}},
     }
 
     sets.convert = {
-        main="Murgleis",
         ammo="Demonry Stone",
         head="Nahtirah Hat",
         body="Viti. Tabard +1",
@@ -608,33 +623,9 @@ function get_sets()
         back="Pahtli Cape",
     }
 
-    sets.slash = {
-        main="Naegling",
-        sub="Demers. Degen +1",
-    }
-
-    sets.pierce = {
-        main="Tokko Knife",
-        sub="Levante Dagger",
-    }
-
-    sets.blunt = {
-        main="Daybreak",
-        sub="Eminent Wand",
-    }
-
 end
 
-pre_dispel = ""
-pre_convert = ""
-
 function pretarget(spell)
-    if spell.name == "Dispelga" then
-        pre_dispel = player.equipment.main
-        equip({main="Daybreak"})
-    elseif spell.name == "Convert" then
-        pre_convert = player.equipment.main
-    end
 end
 
 function precast(spell)
@@ -695,7 +686,7 @@ function precast(spell)
     --- General FC for magic ---
     elseif spell.type ~= 'WeaponSkill' then
         equip(sets.precast.fc)
-        -- windower.add_to_chat("Failover FC")
+        windower.add_to_chat("Failover FC")
 
     else
         --noop
@@ -717,37 +708,22 @@ function midcast(spell)
     elseif spell.skill == 'Enhancing Magic' then
         --- Enhancing Skill Max ---
         if spell.target.type == 'SELF' then
-            if string.match(spell.name, "Phalanx") then
-                -- Phalanx II caps at 500 enhancing, pump the rest with duration
-                equip(sets.midcast.phalanx_self)
-            elseif string.match(spell.name, "Haste") then 
+            if string.match(spell.name, "Refresh") then
+                equip(set_combine(sets.midcast.enh_dur_self, {legs="Leth. Fuseau +1"}))
+            elseif string.match(spell.name, "Haste") or 
+                string.match(spell.name, "Regen") then
                 equip(sets.midcast.enh_dur_self)
-            elseif string.match(spell.name, "Refresh") then
-                equip(set_combine(sets.midcast.enh_dur_self,{
-                    legs="Leth. Fuseau +1"}))
-            elseif string.match(spell.name, "Regen") then
-                equip(set_combine(sets.midcast.enh_dur_self,{
-                    hands={name="Telchine Gloves", augments={'"Regen" potency+3',}},
-                }))
             elseif spell.name == "Stoneskin" then
                 equip(sets.stoneskin)
             elseif spell.name == "Aquaveil" then
                 equip(sets.aquaveil)
-            elseif string.match(spell.name, "Bar") or
-                string.match(spell.name, "Gain-") then
-                equip(set_combine(sets.midcast.enhancing, 
-                    {head={name="Telchine Cap", augments={'Enh. Mag. eff. dur. +8'}}
-                }))
             else
                 equip(sets.midcast.enhancing)
             end
         --- Enhancing Others ---
         else
             if spell.name == "Phalanx II" then
-                -- Phalanx II caps at 500 enhancing, pump the rest with duration
-                equip(sets.midcast.enh_dur_other)
-            elseif string.match(spell.name, "Refresh") then
-                equip(sets.midcast.enh_dur_other)
+                equip(sets.midcast.enhancing)
             else
                 equip(sets.midcast.enh_dur_other)
             end
@@ -823,21 +799,10 @@ end
 function aftercast(spell)
     -- windower.add_to_chat("aftercast : spell.type =  " .. spell.type)
     if spell.type == 4 then return end
-    if spell.name == "Dispelga" and pre_dispel ~= "" then
-        equip({main=pre_dispel})
-        pre_dispel = ""
-    elseif spell.name == "Convert" and pre_convert ~= "" then
-        equip({main=pre_convert})
-        pre_convert = ""
-    end
     idleCheck()
 end
 
 function status_change(new, old)
-    if new == "Resting" then
-        equip(sets.refresh)
-        return
-    end
     idleCheck()
 end
 
