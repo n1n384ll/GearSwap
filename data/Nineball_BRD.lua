@@ -3,6 +3,8 @@ include('custom_helpers')
 
 local inspect = require 'inspect'
 
+dark_ring = { name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%'}}
+
 function get_sets() 
 
     sets.idle = {
@@ -16,7 +18,7 @@ function get_sets()
         left_ear="Infused Earring",
         right_ear="Colossus's Earring",
         left_ring="Shneddick Ring",
-        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
+        right_ring="Defending Ring",
         back="Shadow Mantle",
     }
 
@@ -68,7 +70,7 @@ function get_sets()
         left_ear="Odnowa Earring",
         right_ear="Odnowa Earring +1",
         left_ring="Ayanmo Ring",
-        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
+        right_ring="Defending Ring",
         back="Shadow Mantle",
     }
 

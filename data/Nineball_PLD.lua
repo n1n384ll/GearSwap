@@ -19,7 +19,7 @@ function get_sets()
         right_ear="Odnowa Earring +1",
         --dring
         left_ring="Sulevia's Ring",
-        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
+        right_ring="Defending Ring",
         back="Rudianos's Mantle",
     }
 
@@ -54,11 +54,11 @@ function get_sets()
         left_ear="Odnowa Earring",
         right_ear="Odnowa Earring +1",
         left_ring="Sulevia's Ring",
-        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
-        back="Impassive Mantle",
+        right_ring="Defending Ring",
+        back="Rudianos's Mantle",
     }
 
-    sets.idle = set_combine(sets.hp, {left_ring="Shneddick Ring"})
+    sets.idle = set_combine(sets.turtle, {left_ring="Shneddick Ring"})
 
     sets.refresh = set_combine(sets.dt, {
         ammo="Homiliary",
@@ -78,7 +78,7 @@ function get_sets()
 
     sets.melee = {
         ammo="Amar Cluster",
-        head="Flam. Zucchetto +1",
+        head="Flam. Zucchetto +2",
         body="Flamma Korazin +1",
         hands="Flam. Manopolas +1",
         legs="Flamma Dirs +1",
@@ -273,22 +273,6 @@ function get_sets()
         back="Letalis Mantle",
     }
 
-    -- STR100 mod 
-    -- sets.ws['Circle Blade'] = {
-    --     ammo="Demonry Core",
-    --     head="Jhakri Coronal +1",
-    --     body="Jhakri Robe +2",
-    --     hands="Jhakri Cuffs +2",
-    --     legs="Jhakri Slops +1",
-    --     feet="Jhakri Pigaches +2",
-    --     neck="Asperity Necklace",
-    --     waist="Fotia Belt",
-    --     left_ear="Ishvara Earring",
-    --     right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-    --     left_ring="Rufescent Ring",
-    --     right_ring="Apate Ring",
-    --     back="Letalis Mantle"
-    -- }
 
     -- swift blade?
     -- STR50 MND50 mod

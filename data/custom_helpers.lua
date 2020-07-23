@@ -39,7 +39,10 @@ ring_block = S{
     'Emperor Band',
     'Echad Ring',
     'Undecennial Ring',
-    'Warp Ring'
+    'Warp Ring',
+    'Reraise Earring',
+    'Maat\'s Cap',
+    'Emporox\'s Ring'
 }
 
 function idleCheck()
@@ -48,19 +51,13 @@ end
 
 function idleCheck(playa)
     local set_to_equip = {}
-    local has_ring_block = false
-
-    if (ring_block:contains(player.equipment.right_ring)) then
-        windower.add_to_chat("ring block on")
-        has_ring_block = true
-    end
 
     -- windower.add_to_chat("idleCheck()")
     if player.hpp < 10 and sets.ohshi ~= nil then
         set_to_equip = sets.ohshi
         -- equip(sets.ohshi)
         -- windower.add_to_chat("idleCheck() ohshi")
-    elseif player.hpp < 69 then
+    elseif player.hpp < 50 then
         set_to_equip = sets.dt
         -- equip(sets.dt)
         windower.add_to_chat("--------- DT ON ---------")
@@ -95,8 +92,8 @@ function idleCheck(playa)
         windower.add_to_chat("--------- REFRESH ON ---------")
     end
 
-    if has_ring_block then
-        equip(set_to_equip, {right_ring=player.equipment.right_ring})
+    if hasRingBlock() then
+        equip(set_to_equip, {left_ear=player.equipment.left_ear, right_ring=player.equipment.right_ring})
     else
         equip(set_to_equip)
     end
@@ -155,6 +152,16 @@ function isEnspellActive()
             return true
         end
     end
+    return false
+end
+
+function hasRingBlock()
+    if ring_block:contains(player.equipment.right_ring) then
+        return true
+    elseif ring_block:contains(player.equipment.right_ear) then
+        return true
+    end
+
     return false
 end
 
