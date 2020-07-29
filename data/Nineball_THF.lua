@@ -1,6 +1,8 @@
 --include('organizer-lib')
 include('custom_helpers')
 
+dark_ring = { name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%'}}
+
 function get_sets() 
     --send_command('input //gs showswaps')
 
@@ -37,13 +39,13 @@ function get_sets()
         left_ear="Infused Earring",
         right_ear="Colossus's Earring",
         left_ring="Shneddick Ring",
-        right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%',}},
+        right_ring="Defending Ring",
         back="Shadow Mantle",
     }
 
     -- TH
     sets.melee = {
-        ammo="Mantoptera Eye",
+        ammo="Amar Cluster",
         head="Meghanada Visor +1",
         body="Mekosu. Harness",
         hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
@@ -247,13 +249,14 @@ function get_sets()
 
     sets.ws['Aeolian Edge'] = {
         ammo="Ombre Tathlum",
-        head={ name="Taeon Chapeau", augments={'Phalanx +2',}},
+        head="Taeon Chapeau",
         body="Mekosu. Harness",
         hands={ name="Leyline Gloves", augments={'Accuracy+14','Mag. Acc.+13','"Mag.Atk.Bns."+13','"Fast Cast"+2',}},
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines +1",
         neck="Sanctity Necklace",
-        waist="Wanion Belt",
+        -- waist="Wanion Belt",
+        waist="Chaac Belt",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Acumen Ring",

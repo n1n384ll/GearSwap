@@ -46,7 +46,8 @@ function get_sets()
     -- 52 mdt
     -- 49 bdt
     -- 19 haste
-    sets.dt = set_combine(sets.idle, {
+    sets.dt = 
+    set_combine(sets.idle, {
         head="Sulevia's Mask +1",
         body="Sulevia's Plate. +1",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -56,8 +57,8 @@ function get_sets()
         back=tp_back
     })
 
+    -- sets.melee = sets.tp
     sets.melee = sets.tp
-    -- sets.melee = sets.dt
 
     sets.ohshi = set_combine(sets.dt, { 
         head="Twilight Helm",
@@ -165,8 +166,8 @@ function get_sets()
         feet="Ptero. Greaves +1",
         neck={ name="Dragoon's Collar", augments={'Path: A',}},
         waist="Glassblower's Belt",
+        right_ear="Anastasi Earring",
         left_ear="Lancer's Earring",
-        right_ear="Dragoon's Earring",
         left_ring="Shneddick Ring",
         right_ring="Defending Ring",
         back={ name="Updraft Mantle", augments={'STR+1','Pet: Breath+10','Pet: Damage taken -4%',}},
@@ -181,8 +182,8 @@ function get_sets()
         legs={ name="Acro Breeches", augments={'Pet: Mag. Acc.+25','Pet: Breath+8','Pet: Damage taken -4%',}},
         feet={ name="Acro Leggings", augments={'Pet: Mag. Acc.+23','Pet: Breath+8',}},
         neck={ name="Dragoon's Collar", augments={'Path: A',}},
-        waist="Glassblower's Belt",
-        left_ear="Lancer's Earring",
+        waist="Incarnation Sash",
+        left_ear="Anastasi Earring",
         right_ear="Dragoon's Earring",
         left_ring="Shneddick Ring",
         right_ring="Defending Ring",
@@ -192,10 +193,12 @@ function get_sets()
     -- Build for Wyvern HP
     sets.steady_wing = {
         neck="Chanoix's Gorget",
-        hands="Crusher Gauntlets",
+        right_ear="Anastasi Earring",
         left_ear="Lancer's Earring",
+        hands="Crusher Gauntlets",
+        back={ name="Updraft Mantle", augments={'STR+1','Pet: Breath+10','Pet: Damage taken -4%',}},
         legs="Vishap Brais +1",
-        feet="Ptero. Greaves +1"
+        feet="Ptero. Greaves +1",
     }
 
     sets.ws = {
@@ -291,10 +294,12 @@ function get_sets()
         waist="Fotia Belt",
         left_ear="Sherida Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Rufescent Ring",
+        left_ring="Begrudging Ring",
         right_ring="Rajas Ring",
         back=jump_back
     }
+
+    sets.ws['Skewer'] = sets.ws['Drakesbane']
 
     sets.ws['Leg Sweep'] = {
         ammo="Amar Cluster",
@@ -321,6 +326,7 @@ function pretarget(spell)
 end
 
 pre_angon = ""
+pre_ammo = ""
 
 function precast(spell)
     if spell.type == "Item" then return end
@@ -329,8 +335,11 @@ function precast(spell)
         cancel_spell() return
     end
 
+    -- windower.add_to_chat("precast : " .. table.tostring(spell))
+
     --- Weaponskills ---
     if spell.type == 'WeaponSkill' then
+        isRingoCasting = true
         if sets.ws[spell.name] ~= nil then
             equip(sets.ws[spell.name])
         else
@@ -350,6 +359,7 @@ function precast(spell)
             pre_angon = player.equipment.ammo
             equip({ammo="Angon", left_ear="Dragoon's Earring", hands="Ptero. Fin. Gaunt."})
         elseif string.match(spell.name, "Jump") then
+            isRingoCasting = false
             if spell.name == "Spirit Jump" then
                 equip(set_combine(sets.jump, {
                     feet="Pelt. Schyn. +1"
@@ -358,14 +368,17 @@ function precast(spell)
                 equip(sets.jump)
             end
         elseif spell.name == "Spirit Link" then
+            isRingoCasting = false
             equip(sets.spirit_link)
         elseif spell.name == "Restoring Breath" then
             equip(sets.healing_breath)
         elseif spell.name == "Smiting Breath" then
             equip(sets.smiting_breath)
         elseif spell.name == "Call Wyvern" or spell.name == "Spirit Surge" then
+            isRingoCasting = false
             equip({body="Ptero. Mail +1"})
         elseif spell.name == "Ancient Circle" then
+            isRingoCasting = false
             equip({legs="Vishap Brais +1"})
         else
             --noop
@@ -378,6 +391,9 @@ function precast(spell)
         else
             equip(sets.fc)
         end
+    elseif spell.name == "Ranged" then
+        pre_throw = player.equipment.ammo
+        equip({ammo="Tathlum"})
     else
         -- Magic
         equip(sets.fc)
@@ -393,7 +409,7 @@ function midcast(spell)
         if spell.name == "Phalanx" then
             equip(sets.phalanx)
         elseif string.match(spell.name, "Bar") then
-            windower.add_to_chat("midcast trigger")
+            -- windower.add_to_chat("midcast trigger")
             equip(sets.trigger)
             isRingoCasting = true
         else
@@ -407,9 +423,10 @@ function aftercast(spell)
     if spell.name == "Restoring Breath" or 
         string.match(spell.name, "Bar") then 
         equip(sets.healing_breath)
-    elseif spell.name == "Smiting Breath" then
+    elseif spell.name == "Smiting Breath" or isRingoCasting then
+        -- windower.add_to_chat("aftercast: Ringo still casting")
         equip(sets.smiting_breath)
-    elseif not isRingoCasting then
+    else
         idleCheck()
     end
 
@@ -417,9 +434,15 @@ function aftercast(spell)
         equip({ammo=pre_angon})
         pre_angon = ""
     end
+
+    if spell.name == "Ranged" and player.equipment.ammo ~= "" then
+        equip({ammo=pre_throw})
+        pre_throw = ""
+    end
 end
 
 function pet_midcast(spell) 
+    isRingoCasting = true
     if string.match(spell.name, "Healing Breath") then
             equip(sets.healing_breath)
     elseif string.match(spell.name, "Breath") then
@@ -433,16 +456,20 @@ function pet_aftercast(spell)
 end
 
 function status_change(new, old)
+    if new == "Idle" then isRingoCasting = false end
     if isRingoCasting then return end
+    if player.equipment.ammo == "Tathlum" then return end
     idleCheck()
 end
 
 function buff_change(name, gain, buff_details)
     if isRingoCasting then return end
+    if player.equipment.ammo == "Tathlum" then return end
     idleCheck()
 end
 
 function buff_refresh(name, buff_details)
     if isRingoCasting then return end
+    if player.equipment.ammo == "Tathlum" then return end
     idleCheck()
 end
