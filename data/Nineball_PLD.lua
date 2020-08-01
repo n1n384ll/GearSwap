@@ -2,7 +2,7 @@
 include('custom_helpers')
 
 function get_sets() 
-
+    initLock()
     --send_command('input //gs showswaps')
 
     sets.dt = {
@@ -113,7 +113,7 @@ function get_sets()
     })
 
     sets.enmity = {
-        ammo="Iron Gobbet",
+        ammo="Paeapua",
         head="Cab. Coronet",
         body="Souv. Cuirass +1",
         hands="Souv. Handsch. +1",
@@ -141,8 +141,8 @@ function get_sets()
         feet="Rev. Leggings +1",
         neck="Orunmila's Torque",
         waist="Flume Belt",
-        left_ear="Loquac. Earring",
-        right_ear="Odnowa Earring +1",
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
         left_ring="Prolix Ring",
         right_ring="Veneficium Ring",
         back="Impassive Mantle",
@@ -157,7 +157,7 @@ function get_sets()
     sets.midcast = {}
 
     sets.midcast.cure_potency = {
-        ammo="Iron Gobbet",
+        ammo="Paeapua",
         head="Lithelimb Cap",
         body="Souv. Cuirass +1",
         hands="Flam. Manopolas +1",
@@ -165,7 +165,7 @@ function get_sets()
         feet="Sulev. Leggings +1",
         neck="Phalaina Locket",
         waist="Asklepian Belt",
-        left_ear="Odnowa Earring",
+        left_ear="Nourishing Earring",
         right_ear="Odnowa Earring +1",
         left_ring="Asklepian Ring",
         right_ring="Sirona's Ring",
@@ -339,7 +339,7 @@ function get_sets()
         body={ name="Found. Breastplate", augments={'Accuracy+2','Mag. Acc.+3','"Mag.Atk.Bns."+3',}},
         hands={ name="Leyline Gloves", augments={'Accuracy+14','Mag. Acc.+13','"Mag.Atk.Bns."+13','"Fast Cast"+2',}},
         legs="Chev. Cuisses +1",
-        feet="Sulev. Leggings +1",
+        feet="Founder's Greaves",
         neck="Eddy Necklace",
         waist="Wanion Belt",
         left_ear="Friomisi Earring",

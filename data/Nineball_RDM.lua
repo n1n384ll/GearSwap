@@ -18,7 +18,7 @@ function get_sets()
         neck="Loricate Torque +1",
         waist="Fucho-no-Obi",
         left_ear="Infused Earring",
-        right_ear="Colossus's Earring",
+        right_ear="Etiolation Earring",
         -- left_ring="Sheltered Ring",
         left_ring="Shneddick Ring",
         right_ring="Defending Ring",
@@ -496,8 +496,8 @@ function get_sets()
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Apate Ring",
-        right_ring="Rajas Ring",
+        left_ring="Ifrit Ring",
+        right_ring="Ifrit Ring",
         back="Letalis Mantle",
     }
 
@@ -514,7 +514,7 @@ function get_sets()
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Rufescent Ring",
-        right_ring="Apate Ring",
+        right_ring="Ifrit Ring",
         back="Letalis Mantle",
     }
 
@@ -547,7 +547,7 @@ function get_sets()
         left_ear="Ishvara Earring",
         right_ear="Brutal Earring",
         left_ring="Rufescent Ring",
-        right_ring="Apate Ring",
+        right_ring="Ifrit Ring",
         back="Letalis Mantle",
     }
 
@@ -563,8 +563,8 @@ function get_sets()
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
         right_ear="Moonshade Earring",
-        left_ring="Apate Ring",
-        right_ring="Rajas Ring",
+        left_ring="Ramuh Ring",
+        right_ring="Ramuh Ring",
         back="Letalis Mantle",  
     }
 
@@ -580,8 +580,8 @@ function get_sets()
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Rufescent Ring",
-        right_ring="Apate Ring",
+        left_ring="Ifrit Ring",
+        right_ring="Ifrit Ring",
         back="Letalis Mantle"
     }
 

@@ -45,8 +45,14 @@ ring_block = S{
     'Emporox\'s Ring'
 }
 
+locked = false
+
 function idleCheck()
     idleCheck(nil)
+end
+
+function initLock()
+    locked = false
 end
 
 function idleCheck(playa)
@@ -167,11 +173,30 @@ end
 
 function self_command(c)
     if sets.turtle ~= nil and c == "turtle" then
-        windower.add_to_chat("TURTLE ON")
-        equip(sets.turtle)
-        disable("ammo", "head", "body", "hands", "legs", "feet", "neck", "waist", "left_ear", "right_ear", "left_ring", "right_ring", "back")
+        if locked then
+            unlock_all_gear()
+        else
+            locked = true
+            windower.add_to_chat("TURTLE ON")
+            equip(sets.turtle)
+            disable("ammo", "head", "body", "hands", "legs", "feet", "neck", "waist", "left_ear", "right_ear", "left_ring", "right_ring", "back")
+        end
+    elseif sets.th_lock ~= nil and c == "thlock" then
+        if locked then
+            unlock_all_gear()
+        else
+            windower.add_to_chat("TH LOCKED")
+            equip(sets.th_lock)
+            disable("main", "sub", "hands", "feet", "waist")
+            locked = true
+        end
     elseif c == "unlock" then
-        windower.add_to_chat("UNLOCKED SLOTS")
-        enable("ammo", "head", "body", "hands", "legs", "feet", "neck", "waist", "left_ear", "right_ear", "left_ring", "right_ring", "back")
+        unlock_all_gear()
     end
+end
+
+function unlock_all_gear()
+    locked = false
+    windower.add_to_chat("UNLOCKED SLOTS")
+    enable("main", "sub", "ammo", "head", "body", "hands", "legs", "feet", "neck", "waist", "left_ear", "right_ear", "left_ring", "right_ring", "back")
 end

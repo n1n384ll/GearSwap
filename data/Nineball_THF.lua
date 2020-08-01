@@ -4,6 +4,7 @@ include('custom_helpers')
 dark_ring = { name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. taken -4%','Breath dmg. taken -3%'}}
 
 function get_sets() 
+    initLock()
     --send_command('input //gs showswaps')
 
     --[[
@@ -37,45 +38,46 @@ function get_sets()
         neck="Loricate Torque +1",
         waist="Chaac Belt",
         left_ear="Infused Earring",
-        right_ear="Colossus's Earring",
+        right_ear="Etiolation Earring",
         left_ring="Shneddick Ring",
         right_ring="Defending Ring",
         back="Shadow Mantle",
     }
 
     -- TH
-    sets.melee = {
-        ammo="Amar Cluster",
-        head="Meghanada Visor +1",
-        body="Mekosu. Harness",
-        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
-        legs="Meg. Chausses +1",
-        feet="Skulk. Poulaines +1",
-        neck="Asperity Necklace",
-        waist="Chaac Belt",
-        left_ear="Brutal Earring",
-        right_ear="Suppanomimi",
-        left_ring="Epona's Ring",
-        right_ring="Rajas Ring",
-        back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
-    }
-
-    -- Try Hard
     -- sets.melee = {
-    --     ammo="Mantoptera Eye",
+    --     ammo="Amar Cluster",
     --     head="Meghanada Visor +1",
     --     body="Mekosu. Harness",
-    --     hands="Floral Gauntlets",
+    --     hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
     --     legs="Meg. Chausses +1",
     --     feet="Skulk. Poulaines +1",
     --     neck="Asperity Necklace",
-    --     waist="Sailfi Belt +1",
-    --     left_ear="Sherida Earring",
+    --     waist="Chaac Belt",
+    --     left_ear="Brutal Earring",
     --     right_ear="Suppanomimi",
     --     left_ring="Epona's Ring",
     --     right_ring="Rajas Ring",
     --     back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
     -- }
+
+    -- Try Hard
+    sets.melee = {
+        ammo="Amar Cluster",
+        head="Meghanada Visor +1",
+        body="Mekosu. Harness",
+        -- hands="Floral Gauntlets",
+        hands="Plun. Armlets +1",
+        legs="Meg. Chausses +1",
+        feet="Skulk. Poulaines +1",
+        neck="Asperity Necklace",
+        waist="Sailfi Belt +1",
+        left_ear="Sherida Earring",
+        right_ear="Suppanomimi",
+        left_ring="Epona's Ring",
+        right_ring="Rajas Ring",
+        back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
+    }
 
     sets.th_lock = {
         main={ name="Sandung", augments={'Accuracy+50','Crit. hit rate+5%','"Triple Atk."+3',}},
@@ -119,6 +121,24 @@ function get_sets()
         back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
     }
 
+    sets.lillith = {
+        main="Naegling",
+        sub={ name="Sandung", augments={'Accuracy+50','Crit. hit rate+5%','"Triple Atk."+3',}},
+        range="Antitail",
+        head="Meghanada Visor +1",
+        body={ name="Samnuha Coat", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+11','"Dual Wield"+2',}},
+        hands={ name="Plun. Armlets +1", augments={'Enhances "Perfect Dodge" effect',}},
+        legs="Meg. Chausses +1",
+        feet="Skulk. Poulaines +1",
+        neck="Loricate Torque +1",
+        waist="Chaac Belt",
+        left_ear="Odnowa Earring",
+        right_ear="Odnowa Earring +1",
+        left_ring="Meridian Ring",
+        right_ring="Defending Ring",
+        back="Engulfer Cape +1",
+    }
+
     sets.sneak_attack = {
         ammo="Demonry Core",
         head="Meghanada Visor +1",
@@ -130,8 +150,8 @@ function get_sets()
         waist="Wanion Belt",
         left_ear="Sherida Earring",
         right_ear="Domin. Earring +1",
-        left_ring="Apate Ring",
-        right_ring="Rajas Ring",
+        left_ring="Ramuh Ring",
+        right_ring="Ramuh Ring",
         back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
     }
 
@@ -211,7 +231,7 @@ function get_sets()
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Epona's Ring",
-        right_ring="Apate Ring",
+        right_ring="Ramuh Ring",
         back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
     }
 
@@ -226,8 +246,8 @@ function get_sets()
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Epona's Ring",
-        right_ring="Apate Ring",
+        left_ring="Ramuh Ring",
+        right_ring="Ramuh Ring",
         back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
     }
 
@@ -242,15 +262,15 @@ function get_sets()
         waist="Windbuffet Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Epona's Ring",
-        right_ring="Apate Ring",
+        left_ring="Ramuh Ring",
+        right_ring="Ramuh Ring",
         back={ name="Canny Cape", augments={'DEX+2','AGI+3','"Dual Wield"+2','Crit. hit damage +1%',}},
     }
 
     sets.ws['Aeolian Edge'] = {
         ammo="Ombre Tathlum",
         head="Taeon Chapeau",
-        body="Mekosu. Harness",
+        body="Samnuha Coat",
         hands={ name="Leyline Gloves", augments={'Accuracy+14','Mag. Acc.+13','"Mag.Atk.Bns."+13','"Fast Cast"+2',}},
         legs="Ighwa Trousers",
         feet="Skulk. Poulaines +1",
@@ -294,8 +314,8 @@ function get_sets()
         feet="Skulk. Poulaines +1",
         neck="Orunmila's Torque",
         waist="Sailfi Belt +1",
-        left_ear="Infused Earring",
-        right_ear="Loquac. Earring",
+        left_ear="Loquac. Earring",
+        right_ear="Etiolation Earring",
         left_ring="Veneficium Ring",
         right_ring="Prolix Ring",
         back="Shadow Mantle",

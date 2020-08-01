@@ -4,6 +4,7 @@ include('custom_helpers')
 jump_back = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Store TP"+10'}}
 geirskogul_back = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+7','Weapon skill damage +10%'}}
 tp_back = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+1 Attack+1','"Dbl.Atk."+7','Damage taken-4%',}}
+valorous_mask = { name="Valorous Mask", augments={'Weapon skill damage +4%','DEX+2','Attack+9'}}
 
 isRingoCasting = false
 
@@ -12,7 +13,7 @@ function get_sets()
 
     sets.idle = {
         ammo="Demonry Stone",
-        head="Valorous Mask",
+        head=valorous_mask,
         body="Vishap Mail +1",
         hands="Sulev. Gauntlets +1",
         legs="Sulevi. Cuisses +1",
@@ -77,8 +78,8 @@ function get_sets()
         feet="Flam. Gambieras +1",
         neck="Orunmila's Torque",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Loquac. Earring",
-        right_ear="Odnowa Earring +1",
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
         left_ring="Veneficium Ring",
         right_ring="Lebeche Ring",
         back="Shadow Mantle",
@@ -228,8 +229,8 @@ function get_sets()
         waist="Fotia Belt",
         left_ear="Sherida Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Rufescent Ring",
-        right_ring="Rajas Ring",
+        left_ring="Ifrit Ring",
+        right_ring="Ifrit Ring",
         back=jump_back
     }
 
@@ -244,8 +245,8 @@ function get_sets()
         waist="Fotia Belt",
         left_ear="Sherida Earring",
         right_ear="Ishvara Earring",
-        left_ring="Rufescent Ring",
-        right_ring="Rajas Ring",
+        left_ring="Ifrit Ring",
+        right_ring="Ifrit Ring",
         back=jump_back
     }
 
@@ -262,14 +263,14 @@ function get_sets()
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-        left_ring="Rufescent Ring",
-        right_ring="Rajas Ring",
+        left_ring="Ifrit Ring",
+        right_ring="Ifrit Ring",
         back=jump_back
     }
 
     sets.ws['Geirskogul'] = {
         ammo="Demonry Core",
-        head={ name="Valorous Mask", augments={'Attack+26','"Dbl.Atk."+4','DEX+15','Accuracy+1',}},
+        head=valorous_mask,
         body="Flamma Korazin +1",
         hands="Flam. Manopolas +1",
         legs="Ptero. Brais +1",
@@ -278,8 +279,8 @@ function get_sets()
         waist="Fotia Belt",
         left_ear="Sherida Earring",
         right_ear="Ishvara Earring",
-        left_ring="Thundersoul Ring",
-        right_ring="Rajas Ring",
+        left_ring="Ramuh Ring",
+        right_ring="Ramuh Ring",
         back=geirskogul_back
     }
 
@@ -295,7 +296,7 @@ function get_sets()
         left_ear="Sherida Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Begrudging Ring",
-        right_ring="Rajas Ring",
+        right_ring="Ifrit Ring",
         back=jump_back
     }
 
