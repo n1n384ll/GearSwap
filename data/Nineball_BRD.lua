@@ -8,7 +8,7 @@ dark_ring = { name="Dark Ring", augments={'Magic dmg. taken -3%','Phys. dmg. tak
 function get_sets() 
 
     sets.idle = {
-        head="Aya. Zucchetto +1",
+        head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +1",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
@@ -24,7 +24,7 @@ function get_sets()
 
     sets.melee = {
         ammo="Amar Cluster",
-        head="Aya. Zucchetto +1",
+        head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +1",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
@@ -41,7 +41,7 @@ function get_sets()
     -- More STP
     -- sets.melee = {
     --     ammo="Amar Cluster",
-    --     head="Aya. Zucchetto +1",
+    --     head="Aya. Zucchetto +2",
     --     body="Ayanmo Corazza +1",
     --     hands="Aya. Manopolas +2",
     --     legs="Aya. Cosciales +2",
@@ -60,7 +60,7 @@ function get_sets()
     })
 
     sets.dt = {
-        head="Aya. Zucchetto +1",
+        head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +1",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
@@ -185,7 +185,7 @@ function get_sets()
 
     sets.ws = {
         ammo="Quartz Tathlum +1",
-        head="Aya. Zucchetto +1",
+        head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +1",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
@@ -202,7 +202,7 @@ function get_sets()
     -- STR50 MND50 mod
     sets.ws['Savage Blade'] = {
         ammo="Quartz Tathlum +1",
-        head="Aya. Zucchetto +1",
+        head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +1",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
