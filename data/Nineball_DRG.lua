@@ -4,7 +4,8 @@ include('custom_helpers')
 jump_back = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Store TP"+10'}}
 geirskogul_back = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+7','Weapon skill damage +10%'}}
 tp_back = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+1 Attack+1','"Dbl.Atk."+7','Damage taken-4%',}}
-valorous_mask = { name="Valorous Mask", augments={'Weapon skill damage +4%','DEX+2','Attack+9'}}
+valorous_mask = { name="Valorous Mask", augments={'Weapon skill damage +4%','STR+15','Accuracy+3 Attack+3','Mag. Acc.+6 "Mag.Atk.Bns."+6',}}
+
 
 isRingoCasting = false
 
@@ -21,7 +22,7 @@ function get_sets()
         neck="Loricate Torque +1",
         waist="Flume Belt",
         left_ear="Infused Earring",
-        right_ear="Colossus's Earring",
+        right_ear="Etiolation Earring",
         left_ring="Shneddick Ring",
         right_ring="Defending Ring",
         back="Shadow Mantle",
@@ -30,7 +31,8 @@ function get_sets()
     sets.tp = {
         ammo="Amar Cluster",
         head="Flam. Zucchetto +2",
-        body="Flamma Korazin +1",
+        -- body="Flamma Korazin +1",
+        body="Valorous Mail",
         hands="Flam. Manopolas +1",
         legs="Flamma Dirs +1",
         feet="Flam. Gambieras +1",
@@ -47,8 +49,7 @@ function get_sets()
     -- 52 mdt
     -- 49 bdt
     -- 19 haste
-    sets.dt = 
-    set_combine(sets.idle, {
+    sets.dt = set_combine(sets.idle, {
         head="Sulevia's Mask +1",
         body="Sulevia's Plate. +1",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -211,7 +212,7 @@ function get_sets()
         feet="Sulev. Leggings +1",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Ishvara Earring",
+        left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Rufescent Ring",
         right_ring="Rajas Ring",
@@ -236,14 +237,14 @@ function get_sets()
 
     sets.ws['Camlann\'s Torment'] = {
         ammo="Amar Cluster",
-        head="Flam. Zucchetto +2",
+        head=valorous_mask,
         body="Sulevia's Plate. +1",
         hands="Sulev. Gauntlets +1",
         legs="Flamma Dirs +1",
         feet="Sulev. Leggings +1",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Sherida Earring",
+        left_ear="Thrud Earring",
         right_ear="Ishvara Earring",
         left_ring="Ifrit Ring",
         right_ring="Ifrit Ring",
@@ -254,14 +255,14 @@ function get_sets()
 
     sets.ws['Impulse Drive'] = {
         ammo="Amar Cluster",
-        head="Flam. Zucchetto +2",
+        head=valorous_mask,
         body="Sulevia's Plate. +1",
         hands="Sulev. Gauntlets +1",
         legs="Flamma Dirs +1",
         feet="Sulev. Leggings +1",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Ishvara Earring",
+        left_ear="Sherida Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Ifrit Ring",
         right_ring="Ifrit Ring",
@@ -277,7 +278,7 @@ function get_sets()
         feet="Sulev. Leggings +1",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Sherida Earring",
+        left_ear="Thrud Earring",
         right_ear="Ishvara Earring",
         left_ring="Ramuh Ring",
         right_ring="Ramuh Ring",
@@ -293,7 +294,7 @@ function get_sets()
         feet="Sulev. Leggings +1",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Sherida Earring",
+        left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Begrudging Ring",
         right_ring="Ifrit Ring",

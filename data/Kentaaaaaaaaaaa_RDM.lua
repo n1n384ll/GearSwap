@@ -25,8 +25,6 @@ function get_sets()
     }
 
     sets.dt = {
-        main="Demersal Degen",
-        sub="Darksteel Buckler",
         ammo="Hedgehog Bomb",
         head="Lithelimb Cap",
         body="Vanya Robe",
@@ -459,8 +457,6 @@ function get_sets()
 
 --- WS and JA stuffs ---
     sets.ws = {
-        main="Demersal Degen",
-        sub="Darksteel Buckler",
         ammo="Hedgehog Bomb",
         head="Welkin Crown",
         body="Vanya Robe",

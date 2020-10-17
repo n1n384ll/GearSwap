@@ -132,7 +132,7 @@ function get_sets()
         feet="Skulk. Poulaines +1",
         neck="Loricate Torque +1",
         waist="Chaac Belt",
-        left_ear="Odnowa Earring",
+        left_ear="Eabani Earring",
         right_ear="Odnowa Earring +1",
         left_ring="Meridian Ring",
         right_ring="Defending Ring",
