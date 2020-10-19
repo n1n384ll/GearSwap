@@ -9,10 +9,10 @@ function get_sets()
 
     sets.idle = {
         head="Aya. Zucchetto +2",
-        body="Ayanmo Corazza +1",
+        body="ayanmo corazza +2",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +1",
+        feet="aya. gambieras +2",
         neck="Loricate Torque +1",
         waist="Flume Belt",
         left_ear="Infused Earring",
@@ -23,12 +23,13 @@ function get_sets()
     }
 
     sets.melee = {
-        ammo="Amar Cluster",
-        head="Aya. Zucchetto +2",
-        body="Ayanmo Corazza +1",
+        range={ name="Linos", augments={'Accuracy+15','"Store TP"+3','Quadruple Attack +3',}},
+        ammo=empty,
+		head="Aya. Zucchetto +2",
+        body="ayanmo corazza +2",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +1",
+        feet="aya. gambieras +2",
         neck="Bard's Charm",
         waist="Windbuffet Belt",
         left_ear="Cessance Earring",
@@ -42,10 +43,10 @@ function get_sets()
     -- sets.melee = {
     --     ammo="Amar Cluster",
     --     head="Aya. Zucchetto +2",
-    --     body="Ayanmo Corazza +1",
+    --     body="ayanmo corazza +2",
     --     hands="Aya. Manopolas +2",
     --     legs="Aya. Cosciales +2",
-    --     feet="Aya. Gambieras +1",
+    --     feet="aya. gambieras +2",
     --     neck="Asperity Necklace",
     --     waist="Windbuffet Belt",
     --     left_ear="Cessance Earring",
@@ -56,15 +57,16 @@ function get_sets()
     -- }
 
     sets.dw = set_combine(sets.melee, {
-        right_ear="Suppanomimi"
+        right_ear="Suppanomimi",
+		left_ear="eabani earring",
     })
 
     sets.dt = {
         head="Aya. Zucchetto +2",
-        body="Ayanmo Corazza +1",
+        body="ayanmo corazza +2",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +1",
+        feet="aya. gambieras +2",
         neck="Loricate Torque +1",
         waist="Flume Belt",
         left_ear="Odnowa Earring",
@@ -79,23 +81,23 @@ function get_sets()
     sets.precast.fc = {
         ammo="Impatiens",
         head="Nahtirah Hat",
-        body="Inyanga Jubbah",
+        body="inyanga jubbah +2",
         hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
         legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +1",
+        feet="aya. gambieras +2",
         neck="Orunmila's Torque",
         waist="Witful Belt",
         right_ear="Loquac. Earring",
         left_ear="Etiolation Earring",
         left_ring="Veneficium Ring",
-        right_ring="Prolix Ring",
+        right_ring="kishar ring",
         back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},
     }
 
     sets.precast.fc_song = {
         range="Gjallarhorn",
-        head="Fili Calot",
-        body="Inyanga Jubbah",
+        head="fili calot +1",
+        body="inyanga jubbah +2",
         hands={ name="Gendewitha Gages", augments={'Phys. dmg. taken -3%','Song spellcasting time -4%',}},
         legs={ name="Gendewitha Spats", augments={'Phys. dmg. taken -4%','Song spellcasting time -5%',}},
         feet={ name="Telchine Pigaches", augments={'"Fast Cast"+5','Enh. Mag. eff. dur. +9',}},
@@ -104,7 +106,7 @@ function get_sets()
         left_ear="Loquac. Earring",
         right_ear="Aoidos' Earring",
         left_ring="Veneficium Ring",
-        right_ring="Prolix Ring",
+        right_ring="kishar ring",
         back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},
     }
 
@@ -120,12 +122,12 @@ function get_sets()
 
     sets.midcast.song_buff = {
         range="Gjallarhorn",
-        head="Fili Calot",
-        body="Fili Hongreline",
-        hands="Inyan. Dastanas +1",
-        legs="Inyanga Shalwar",
-        feet="Brioso Slippers +1",
-        neck="Moonbow Whistle",
+        head="fili calot +1",
+        body="fili hongreline +1",
+        hands="fili manchettes +1",
+        legs="inyanga shalwar +2",
+        feet="brioso slippers +2",
+        neck="moonbow whistle +1",
         waist="Harfner's Sash",
         -- TODO : DI Earring
         left_ear="Singing Earring",
@@ -137,13 +139,13 @@ function get_sets()
 
     sets.midcast.song_macc = {
         range="Gjallarhorn",
-        head="Brioso Roundlet +1",
-        body="Brioso Just. +1",
-        hands="Inyan. Dastanas +1",
-        legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +1",
-        neck="Moonbow Whistle",
-        waist="Ovate Rope",
+        head="brioso roundlet +2",
+        body="Brioso Justau. +2",
+        hands="Brioso Cuffs +2",
+        legs="Brioso Cannions +2",
+        feet="Brioso Slippers +2",
+        neck="Mnbw. Whistle +1",
+        waist="luminary sash",
         left_ear="Lifestorm Earring",
         right_ear="Psystorm Earring",
         left_ring="Stikini Ring",
@@ -184,12 +186,13 @@ function get_sets()
     }
 
     sets.ws = {
-        ammo="Quartz Tathlum +1",
+        range={ name="Linos", augments={'Accuracy+14','Weapon skill damage +2%','STR+8',}},
+        ammo=empty,
         head="Aya. Zucchetto +2",
-        body="Ayanmo Corazza +1",
+        body="ayanmo corazza +2",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +1",
+        feet="aya. gambieras +2",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
@@ -201,19 +204,20 @@ function get_sets()
 
     -- STR50 MND50 mod
     sets.ws['Savage Blade'] = {
-        ammo="Quartz Tathlum +1",
-        head="Aya. Zucchetto +2",
-        body="Ayanmo Corazza +1",
+        range={ name="Linos", augments={'Accuracy+14','Weapon skill damage +2%','STR+8',}},
+        ammo=empty,
+		head="aya. zucchetto +2",
+        body="Ayanmo Corazza +2",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +1",
+        feet="aya. gambieras +2",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring="Rufescent Ring",
-        right_ring="Apate Ring",
-        back="Letalis Mantle",
+        right_ring="petrov Ring",
+       back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
     }
 
 end
@@ -301,12 +305,12 @@ function midcast(spell)
         elseif spell.targets['Self'] or spell.targets['Party'] then
             if string.match(spell.name, "Paeon") then
                 windower.add_to_chat("Casting Paeon")
-                equip(set_combine(sets.midcast.song_buff, {head="Brioso Roundlet +1"}))
+                equip(set_combine(sets.midcast.song_buff, {head="brioso roundlet +2"}))
             elseif string.match(spell.name, "Ballad") then
-                equip(set_combine(sets.midcast.song_buff, {legs="Fili Rhingrave"}))
+                equip(set_combine(sets.midcast.song_buff, {legs="fili rhingrave +1"}))
             elseif string.match(spell.name, "Scherzo") then
                 windower.add_to_chat("Casting Scherzo")
-                equip(set_combine(sets.midcast.song_buff, {feet="Fili Cothurnes"}))
+                equip(set_combine(sets.midcast.song_buff, {feet="Fili Cothurnes +1"}))
             elseif string.match(spell.name, "Madrigal") or string.match(spell.name, "Prelude") then
                 equip(set_combine(sets.midcast.song_buff, {back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},}))
             else
